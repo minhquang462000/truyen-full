@@ -18,7 +18,7 @@ export default function MainHeader(props: IMainHeaderProps) {
     const [showSetting, setShowSetting] = useState(false)
     const [showClassifyChart, setShowClassifyChart] = useState(false)
     return (
-        <header className="w-full lg:hidden  ">
+        <header className="w-full text-sm lg:hidden  ">
             <div className="w-full  bg-[#14425d] pt-2  overflow-hidden m-auto">
                 <div className="w-full md:max-w-[750px] lg:max-w-[1200px] m-auto">
                     <div className="items-center  px-3 pb-2 flex justify-between ">

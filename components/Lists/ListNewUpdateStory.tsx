@@ -9,11 +9,10 @@ export default function ListNewUpdateStory(props: IListNewUpdateStoryProps) {
     return (
         <div className='w-full lg:text-base font-medium'>
             <div className="w-full relative  border-b border-[#ccc] flex items-center font-medium justify-between">
-                <h2 className="flex   text-lg pl-1 md:pl-0  items-center">
+                <h2 className="flex   text-lg pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
                     <Link href=""> TRUYỆN MỚI CẬP NHẬT</Link>
                     <IoIosArrowForward size={25} />
                 </h2>
-                <div className="bg-[#999] absolute mt-[6px] bottom-[-1px] w-[220px] h-[2px]" />
                 <select className="border-[1px] text-sm bg-transparent outline-none focus:border-[#26b7fe] border-[#333] mt-[5px]  p-1 py-2  w-[120px]" name="" id="">
                     <option value="">TẤT CẢ</option>
                 </select>

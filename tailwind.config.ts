@@ -13,15 +13,33 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-       transitionProperty: {
+      transitionProperty: {
         "min-height": "min-height",
+        "max-height": "max-height",
         "max-width": "max-width",
       },
-       content: {
-        'link': 'url("/icons/link.svg")',
+      content: {
+        link: 'url("/icons/link.svg")',
+      },
+      perspective: {
+        "300": "300px",
+      },
+      rotate: {
+        "-3": "-3deg",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: any) {
+      addUtilities({
+        ".perspective-300": {
+          perspective: "300px",
+        },
+        ".rotate-y-3": {
+          transform: "rotateY(-3deg)",
+        },
+      });
+    },
+  ],
 };
 export default config;

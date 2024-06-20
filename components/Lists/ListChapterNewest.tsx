@@ -1,17 +1,18 @@
 import Link from "next/link";
+import { FaCertificate } from "react-icons/fa";
 import { GiSevenPointedStar } from "react-icons/gi";
 
 export interface IListChapterProps {}
 
-export default function ListChapter(props: IListChapterProps) {
+export default function ListChapterNewest(props: IListChapterProps) {
   return (
-    <div className="w-full mt-4 text-sm font-medium">
+    <div className="w-full mt-4 text-sm ">
       <div className="w-full border-b border-[#ccc] flex items-end justify-between font-medium ">
         <h2 className="text-lg md:text-xl pb-2 border-b border-[#333] pl-1 md:pl-0">
-          <Link href=""> {"danh sách chương".toUpperCase()}</Link>
+          <Link href=""> {"Các chương mới nhất".toUpperCase()}</Link>
         </h2>
       </div>
-      <ul className="mt-3 text-sm font-medium grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-x-8 px-5">
+      <ul className="mt-3 font-medium flex flex-col gap-2 pl-3">
         <li className="flex w-full items-center gap-1 ">
           <GiSevenPointedStar />
           <p className=" w-full overflow-hidden truncate hover:underline">

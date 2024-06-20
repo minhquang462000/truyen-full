@@ -2,16 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .icon-book::before {
-  content: url('/icons/books.svg');
+  content: url("/icons/books.svg");
   display: inline-block;
   translate: 0px 3px;
 }
 .icon-pencil::before {
-  content: url('/icons/pencil.svg');
+  content: url("/icons/pencil.svg");
   display: inline-block;
   translate: 0px 2px;
-  margin-right: 5px ;
+  margin-right: 5px;
 }
-
+@media (min-width: 1024px) {
+  .image-detail {
+    position: relative;
+    transform: perspective(300px) rotateY(-4deg);
+    outline: 1px solid transparent;
+    box-shadow: 5px 5px 20px #666;
+    margin: 0;
+  }
+  .image-detail::before {
+    content: "";
+    position: absolute;
+    top: 2%;
+    left: 7.5%;
+    width: 100%;
+    height: 96%;
+    background-color: black;
+    z-index: -1;
+  }
+  .image-detail::after {
+    width: 5%;
+    left: 100%;
+    background-color: #efefef;
+    box-shadow: inset 0px 0px 5px #aaa;
+    transform: perspective(300px) rotateY(20deg);
+    -moz-transform: rotateY(20deg);
+    -webkit-transform: perspective(300) rotateY(20deg);
+    position: absolute;
+    top: 2%;
+    height: 96%;
+    content: " ";
+    z-index: -1;
+  }
+}
