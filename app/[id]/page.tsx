@@ -2,13 +2,15 @@ import CardItemDetail from "@/components/Cards/CardItemDetail";
 import ChangeListByRat from "@/components/Functions/ChangeListByRat";
 import ListCategoryHome from "@/components/Lists/ListCategoryHome";
 import ListChapter from "@/components/Lists/ListChapter";
+import ListComment from "@/components/Lists/ListCommemt";
+import ListStoryByAuthor from "@/components/Lists/ListStoryByAuthor";
 import ListStoryCategory from "@/components/Lists/ListStoryCategory";
 import { MainLayout } from "@/layouts";
 import Link from "next/link";
 import * as React from "react";
 import { IoMdHome } from "react-icons/io";
 
-export interface IpageProps {}
+export interface IpageProps { }
 
 export default function page(props: IpageProps) {
   return (
@@ -31,12 +33,18 @@ export default function page(props: IpageProps) {
               <Link href=""> {"Thông tin truyện".toUpperCase()}</Link>
             </h2>
           </div>
-          <div className="w-full lg:grid lg:mt-5 gap-5 grid-cols-4">
+          <div className="w-full lg:grid lg:mt-5  grid-cols-4">
             <div className="lg:col-span-3">
               <CardItemDetail />
               <ListChapter />
             </div>
-            <ChangeListByRat />
+            <div className="hidden  lg:block">
+              <ListStoryByAuthor />
+              <ChangeListByRat />
+            </div>
+            <div className="w-full lg:col-span-3">
+              <ListComment />
+            </div>
           </div>
         </div>
       </main>

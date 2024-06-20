@@ -10,17 +10,17 @@ export default function ListNewUpdateStory(props: IListNewUpdateStoryProps) {
         <div className='w-full lg:text-base font-medium'>
             <div className="w-full relative  border-b border-[#ccc] flex items-center font-medium justify-between">
                 <h2 className="flex   text-lg pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
-                    <Link href=""> TRUYỆN MỚI CẬP NHẬT</Link>
+                    <Link href=""> {"truyện mới cập nhật".toUpperCase()}</Link>
                     <IoIosArrowForward size={25} />
                 </h2>
                 <select className="border-[1px] text-sm bg-transparent outline-none focus:border-[#26b7fe] border-[#333] mt-[5px]  p-1 py-2  w-[120px]" name="" id="">
                     <option value="">TẤT CẢ</option>
                 </select>
             </div>
-            <ul className='w-full flex   flex-col'>
+            <ul className='w-full flex text-xs  flex-col'>
                 <li className='flex w-full border-b border-dashed border-[#b8b8b8]'>
-                    <span className='w-3/4 md:w-1/2 lg:w-2/5 overflow-hidden truncate border-r p-2 flex gap-1 items-center  border-[#b8b8b8] border-dashed '>
-                        <span className='flex items-center'>
+                    <span className='w-3/4 md:w-1/2  lg:w-2/5 overflow-hidden truncate border-r p-2 flex gap-1 items-center  border-[#b8b8b8] border-dashed '>
+                        <span className='flex text-sm items-center'>
                             <IoIosArrowForward size={20} color='#8E8C8C' />
                             <p className='hover:underline'> <Link href={""}>Thế Giới Hoàn Mỹ</Link></p>
                         </span>
