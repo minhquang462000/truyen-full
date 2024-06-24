@@ -18,6 +18,15 @@ export default function MainHeaderDesktop(props: IMainHeaderProps) {
   const wrapperRefCategory = useRef<any>(null);
   const wrapperRefList = useRef<any>(null);
   const wrapperRefClassifyChart = useRef<any>(null);
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    setShowSetting(false);
+  }, [theme]);
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -70,7 +79,7 @@ export default function MainHeaderDesktop(props: IMainHeaderProps) {
   ]);
   return (
     <header className="w-full text-sm hidden lg:block  ">
-      <div className="w-full  bg-[#14425d]    m-auto">
+      <div className="w-full  bg-[#14425d] dark:bg-[#242F39]    m-auto">
         <div className="w-full max-w-[1200px] h-[50px] flex justify-between items-center gap-5 m-auto">
           <Link href="/">
             <h1
@@ -225,11 +234,13 @@ export default function MainHeaderDesktop(props: IMainHeaderProps) {
                 </label>
                 <select
                   name="setting"
-                  className="bg-white w-3/5 text-[#666] p-2 px-3 outline-none rounded"
+                  value={theme}
+                  onChange={(e) => setTheme(e.target.value)}
+                  className="bg-white dark:bg-[#1C242D] w-3/5 text-[#666] p-2 px-3 outline-none rounded"
                   id=""
                 >
-                  <option value="">Xám nhạt</option>
-                  <option value="">Màu tối</option>
+                  <option value="light">Xám nhạt</option>
+                  <option value="dark">Màu tối</option>
                 </select>
               </div>
             </li>

@@ -8,8 +8,8 @@ export interface IListComplatedProps {}
 export default function ListCompletedStory(props: IListComplatedProps) {
   return (
     <section className="w-full mt-5">
-      <div className="w-full   border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h2 className="text-lg md:text-xl flex items-center  pb-2 border-b border-[#333] pl-1 md:pl-0">
+      <div className="w-full   border-b dark:text-white border-[#ccc] dark:border-none flex items-center font-medium justify-between">
+        <h2 className="text-lg md:text-xl flex items-center dark:border-none pb-2 border-b border-[#333] pl-1 md:pl-0">
           <Link href=""> {"Truyện đã hoàn thành".toUpperCase()}</Link>
           <IoIosArrowForward size={25} />
         </h2>
