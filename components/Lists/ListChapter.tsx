@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { GiSevenPointedStar } from "react-icons/gi";
+import RootPanagation from "../Functions/RootPanagation";
+import ChapterPanagation from "../Functions/ChapterPanagation";
 
-export interface IListChapterProps {}
+export interface IListChapterProps { }
 
 export default function ListChapter(props: IListChapterProps) {
   return (
@@ -16,24 +18,11 @@ export default function ListChapter(props: IListChapterProps) {
           <GiSevenPointedStar />
           <p className=" w-full overflow-hidden truncate hover:underline">
             {" "}
-            C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
-          </p>
-        </li>
-        <li className="flex w-full items-center gap-1 ">
-          <GiSevenPointedStar />
-          <p className=" w-full overflow-hidden truncate hover:underline">
-            {" "}
-            C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
-          </p>
-        </li>
-        <li className="flex w-full items-center gap-1 ">
-          <GiSevenPointedStar />
-          <p className=" w-full overflow-hidden truncate hover:underline">
-            {" "}
-            C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
+            Chương 30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
           </p>
         </li>
       </ul>
+      <ChapterPanagation />
     </div>
   );
 }

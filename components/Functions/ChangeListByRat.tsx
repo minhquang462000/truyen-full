@@ -33,7 +33,7 @@ export default function ChangeListByRat(props: IAppProps) {
       <div className="flex w-full mt-4 text-[12px] font-semibold justify-center items-center gap-2">
         <button
           onClick={() => setActiveRat(0)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
+          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
             activeRat === 0 ? "bg-[#4e4e4e] text-white" : "text-[#4e4e4e]"
           }`}
         >
@@ -41,7 +41,7 @@ export default function ChangeListByRat(props: IAppProps) {
         </button>
         <button
           onClick={() => setActiveRat(1)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
+          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
             activeRat === 1 ? "bg-[#4e4e4e] text-white" : "text-[#4e4e4e]"
           }`}
         >
@@ -49,7 +49,7 @@ export default function ChangeListByRat(props: IAppProps) {
         </button>
         <button
           onClick={() => setActiveRat(2)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
+          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
             activeRat === 2 ? "bg-[#4e4e4e] text-white" : "text-[#4e4e4e]"
           }`}
         >
