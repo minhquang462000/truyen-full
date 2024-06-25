@@ -1,7 +1,6 @@
 import Link from "next/link";
 import CardPageCategory from "../Cards/CardPageCategory";
 import RootPagination from "../Functions/RootPagination";
-
 export interface IListStoryCategoryProps {}
 
 export default function ListStoryCategory(props: IListStoryCategoryProps) {

@@ -40,9 +40,11 @@
   content: "\e043";
   display: inline-block;
   margin-right: 2px;
+  font-family: 'bootstrap-icons';
 }
 .icon-pencil::before {
   content: "\270f";
   display: inline-block;
   margin-right: 5px;
+  font-family: 'bootstrap-icons';
 }

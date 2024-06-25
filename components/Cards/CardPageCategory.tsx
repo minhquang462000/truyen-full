@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import 'bootstrap-icons/font/bootstrap-icons.css';
 export interface ICardPageCategoryProps {}
 
 export default function CardPageCategory(props: ICardPageCategoryProps) {
