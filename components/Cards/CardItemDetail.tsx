@@ -38,7 +38,7 @@ export default function CardItemDetail(props: ICardItemDetailProps) {
             alt=""
           />
         </div>
-        <ul className="flex flex-col font-medium gap-2 pt-3 lg:px-1 lg:pt-8 lg border-r">
+        <ul className="flex flex-col font-medium gap-2 pt-3 lg:px-1 lg:pt-8 lg border-r dark:border-dashed">
           <li className="flex items-center flex-wrap w-full ">
             <strong className="w-max  mr-2">Tác giả:</strong>
             <Link href={""} className="hover:underline  overflow-hidden">
@@ -63,7 +63,7 @@ export default function CardItemDetail(props: ICardItemDetailProps) {
           </li>
           <li className="flex items-center w-full gap-2">
             <strong className="w-max">Trạng thái :</strong>
-            <span className=" text-[#428bca]">Đang ra</span>
+            <span className=" text-[#428bca] dark:text-[#3c763d]">Đang ra</span>
           </li>
         </ul>
       </div>

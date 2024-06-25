@@ -25,32 +25,38 @@ export default function ChangeListByRat(props: IAppProps) {
   }, [activeRat]);
   return (
     <div className="w-full text-sm ">
-      <div className="w-full relative  border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h2 className="flex  border-b border-[#333] pb-1 text-lg pl-1 md:pl-0  items-center">
+      <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
+        <h2 className="flex  border-b border-[#333] dark:border-none dark:text-white pb-1 text-lg pl-1 md:pl-0  items-center">
           {" truyện đang hot".toUpperCase()}
         </h2>{" "}
       </div>
       <div className="flex w-full mt-4 text-[12px] font-semibold justify-center items-center gap-2">
         <button
           onClick={() => setActiveRat(0)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
-            activeRat === 0 ? "bg-[#4e4e4e] text-white" : "text-[#4e4e4e]"
+          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e] hover:text-white ${
+            activeRat === 0
+              ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
+              : "text-[#4e4e4e] "
           }`}
         >
           NGÀY
         </button>
         <button
           onClick={() => setActiveRat(1)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
-            activeRat === 1 ? "bg-[#4e4e4e] text-white" : "text-[#4e4e4e]"
+          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e] hover:text-white ${
+            activeRat === 1
+              ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
+              : "text-[#4e4e4e] "
           }`}
         >
           THÁNG
         </button>
         <button
           onClick={() => setActiveRat(2)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa] rounded-full hover:bg-[#4e4e4e] hover:text-white ${
-            activeRat === 2 ? "bg-[#4e4e4e] text-white" : "text-[#4e4e4e]"
+          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e]  hover:text-white ${
+            activeRat === 2
+              ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
+              : "text-[#4e4e4e] "
           }`}
         >
           ALL TIME

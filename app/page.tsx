@@ -18,8 +18,8 @@ export default function Home() {
           </p>
         </div>
         <div className="w-full  md:max-w-[750px]   m-auto lg:max-w-[1200px] ">
-          <div className="w-full dark:text-white  relative border-b border-[#ccc] flex items-center font-medium justify-between">
-            <h2 className="flex gap-1 p-1 border-b border-[#333] md:pl-0 text-xl items-center">
+          <div className="w-full dark:text-white dark:border-none  relative border-b border-[#ccc] flex items-center font-medium justify-between">
+            <h2 className="flex gap-1 p-1 border-b border-[#333] dark:border-none md:pl-0 text-xl items-center">
               <Link href="">{"truyện hot".toUpperCase()}</Link>
               <ImFire />
             </h2>

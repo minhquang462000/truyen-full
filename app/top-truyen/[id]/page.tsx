@@ -10,7 +10,7 @@ export interface IpageProps {}
 export default function page(props: IpageProps) {
   return (
     <MainLayout>
-      <main className="w-full  text-[#4e4e4e] pb-5   m-auto ">
+      <main className="w-full dark:bg-[#222222] dark:text-[#b1b1b1] pb-5">
         <div className="w-full  bg-white p-2  shadow-md shadow-[#ccc]">
           <ul className="w-full text-base  md:max-w-[750px]   m-auto lg:max-w-[1200px] flex  gap-2 items-center flex-wrap ">
             <li className="flex font-semibold items-center gap-1">

@@ -227,7 +227,7 @@ export default function MainHeaderDesktop(props: IMainHeaderProps) {
               <div
                 className={`p-3 pb-8 ${
                   !showSetting && "hidden"
-                } right-0 absolute top-[100%] w-[320px] bg-[#2f566d] flex  gap-1  `}
+                } right-0 z-20 absolute top-[100%] w-[320px] bg-[#2f566d] flex  gap-1  `}
               >
                 <label htmlFor="setting" className="w-2/5 text-end px-5">
                   Màu nền

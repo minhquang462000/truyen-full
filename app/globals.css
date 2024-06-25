@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.icon-book::before {
-  content: url("/icons/books.svg");
-  display: inline-block;
-  translate: 0px 3px;
-}
-.icon-pencil::before {
-  content: url("/icons/pencil.svg");
-  display: inline-block;
-  translate: 0px 2px;
-  margin-right: 5px;
-}
 @media (min-width: 1024px) {
   .image-detail {
     position: relative;
@@ -45,4 +34,15 @@
     content: " ";
     z-index: -1;
   }
+}
+
+.icon-book::before {
+  content: "\e043";
+  display: inline-block;
+  margin-right: 2px;
+}
+.icon-pencil::before {
+  content: "\270f";
+  display: inline-block;
+  margin-right: 5px;
 }

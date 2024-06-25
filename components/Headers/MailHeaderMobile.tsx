@@ -18,15 +18,15 @@ export default function MainHeader(props: IMainHeaderProps) {
   const [showClassifyChart, setShowClassifyChart] = useState(false);
   const [theme, setTheme] = useState("light");
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, [theme]);
   return (
     <header className="w-full text-sm lg:hidden  ">
-      <div className="w-full  bg-[#14425d] dark:bg-[#242F39] pt-2  overflow-hidden m-auto">
+      <div className="w-full  bg-[#14425d] dark:bg-[#242F39] pt-2   m-auto">
         <div className="w-full md:max-w-[750px] lg:max-w-[1200px] m-auto">
           <div className="items-center  px-3 pb-2 flex justify-between ">
             <Link href="/">
@@ -37,14 +37,14 @@ export default function MainHeader(props: IMainHeaderProps) {
             </Link>
             <button
               onClick={() => setShowMenu(!showMenu)}
-              className="text-[#888888] flex justify-center border hover:bg-[#ddd] border-[#ddd] items-center w-[44px] h-[34px]  rounded"
+              className={`text-[#888888] flex justify-center border hover:bg-[#ddd] border-[#ddd] items-center w-[44px] h-[34px]  rounded`}
             >
               <IoReorderThreeOutline size={40} />
             </button>
           </div>
           <ul
             className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-none border-white ${
-              showMenu ? "max-h-full py-2 " : "max-h-0 overflow-hidden"
+              showMenu ? "max-h-[2000px] py-2 " : "max-h-0 overflow-hidden"
             }`}
           >
             <li>

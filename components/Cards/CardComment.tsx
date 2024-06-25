@@ -17,7 +17,7 @@ export default function CardComment(props: ICardCommentProps) {
             </div>
 
             <div className='w-full '>
-                <h4 className='text-lg font-bold text-[#385898] mb-1 hover:underline cursor-pointer'>Nguyễn Minh Quang</h4>
+                <h4 className='text-base font-extrabold text-[#385898] mb-1 hover:underline cursor-pointer'>Nguyễn Minh Quang</h4>
                 {showMore ?
                     <div>
                         <p className='font-medium'>Truyện như cccc!</p>
