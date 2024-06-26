@@ -14,7 +14,8 @@ export default function ButtonChangeChapter(props: IButtonChangeChapterProps) {
     <div className="flex justify-center gap-1 text-sm text-white items-center">
       <button className="h-10 md:h-12 w-[100px] md:w-[160px] flex justify-center rounded-l  dark:text-[#82A82D] dark:bg-[#121212] dark:hover:bg-[#121212] dark:hover:border-[#aacb22] dark:hover:text-[#aacb22] dark:border-[#82A82D] dark:border hover:bg-[#449d44] bg-[#5cb85c] border-[#4cae4c] items-center">
         <MdOutlineKeyboardArrowLeft size={25} />
-        Trước
+
+        <p className="md:before:content-['Chương'] md:before:mr-1"> trước</p>
       </button>
       <button
         onClick={() => setShowListChapter(true)}
@@ -34,8 +35,8 @@ export default function ButtonChangeChapter(props: IButtonChangeChapterProps) {
           <IoIosListBox size={20} />
         )}
       </button>
-      <button className="h-10 md:h-12 w-[100px] md:w-[160px]  flex justify-center rounded-r   dark:text-[#82A82D] dark:bg-[#121212] dark:hover:bg-[#121212] dark:hover:border-[#aacb22] dark:hover:text-[#aacb22] dark:border-[#82A82D] dark:border hover:bg-[#449d44] bg-[#5cb85c] border-[#4cae4c] items-center">
-        Tiếp
+      <button className="h-10 md:h-12 w-[100px] md:w-[160px]  flex justify-center rounded-r  dark:text-[#82A82D] dark:bg-[#121212] dark:hover:bg-[#121212] dark:hover:border-[#aacb22] dark:hover:text-[#aacb22] dark:border-[#82A82D] dark:border hover:bg-[#449d44] bg-[#5cb85c] border-[#4cae4c] items-center">
+        <p className="md:before:content-['Chương'] md:before:mr-1">tiếp</p>
         <MdOutlineKeyboardArrowRight size={25} />
       </button>
     </div>

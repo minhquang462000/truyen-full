@@ -19,10 +19,10 @@ const NextArrow = (props: any) => {
   const { onClick, currentSlide } = props;
   return (
     <button
-      className={` opacity-0  group-hover:opacity-100 flex justify-center items-center w-[40px] h-[100px] absolute right-0 bg-[#ff6d19] z-10 top-[30%] rounded-l-md`}
+      className={` invisible  group-hover:visible flex justify-center items-center w-[30px] h-[90px] absolute right-0 bg-[#ff6d19] z-10 top-[30%] rounded-l-lg`}
       onClick={onClick}
     >
-      <FaArrowRight size={25} color="white" />
+      <FaArrowRight size={22} color="white" />
     </button>
   );
 };
@@ -30,10 +30,10 @@ const PrevArrow = (props: any) => {
   const { onClick, currentSlide } = props;
   return (
     <button
-      className={` opacity-0  group-hover:opacity-100 flex justify-center items-center    w-[40px] h-[100px] absolute left-0 z-10 top-[30%] bg-[#ff6d19] rounded-r-md `}
+      className={` invisible  group-hover:visible flex justify-center items-center    w-[30px] h-[90px] absolute left-0 z-10 top-[30%] bg-[#ff6d19] rounded-r-lg `}
       onClick={onClick}
     >
-      <FaArrowLeft size={25} color="white" />
+      <FaArrowLeft size={22} color="white" />
     </button>
   );
 };
@@ -47,6 +47,8 @@ export default function SlideInChapterPage(props: ISlideHomeProps) {
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 2560,
@@ -105,13 +107,13 @@ export default function SlideInChapterPage(props: ISlideHomeProps) {
             return (
               <div key={index} className="w-full text-sm ">
                 <div className="w-[95%] text-center  flex flex-col gap-2 overflow-hidden cursor-pointer relative h-full  m-auto">
-                  <div className="h-[200px] relative overflow-hidden w-full ">
+                  <div className="md:h-[200px] relative overflow-hidden w-full ">
                     <img
                       className="h-full w-full object-cover"
                       src={item}
                       alt="img"
                     />
-                    <h3 className=" bg-black bg-opacity-50 py-2 absolute bottom-0 right-0 text-white  px-1  transition-all duration-300  font-semibold">
+                    <h3 className=" bg-black bg-opacity-50 md:py-1 text-[10px] md:text-sm leading-4 absolute bottom-0 right-0 text-white    transition-all duration-300  font-semibold">
                       Em Có Nghe Thấy Tôi Nói Không
                     </h3>
                   </div>

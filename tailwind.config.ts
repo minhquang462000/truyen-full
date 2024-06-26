@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: 'selector',
+  darkMode: "selector",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,36 +14,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      fontFamily: {
-        content: ['custom', 'Glyphicons Halflings'],
-      },
       transitionProperty: {
         "min-height": "min-height",
         "max-height": "max-height",
         "max-width": "max-width",
       },
-      content: {
-        link: 'url("/icons/link.svg")',
-      },
-      perspective: {
-        "300": "300px",
-      },
-      rotate: {
-        "-3": "-3deg",
-      },
     },
   },
-  plugins: [
-    function ({ addUtilities }: any) {
-      addUtilities({
-        ".perspective-300": {
-          perspective: "300px",
-        },
-        ".rotate-y-3": {
-          transform: "rotateY(-3deg)",
-        },
-      });
-    },
-  ],
+  plugins: [],
 };
 export default config;

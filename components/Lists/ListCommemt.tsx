@@ -14,21 +14,25 @@ export default function ListComment(props: IListCommentProps) {
           <Link href=""> {"Bình luận truyện".toUpperCase()}</Link>
         </h2>
       </div>
-      <div className="w-full mt-5">
+      <div className="w-full md:p-0 p-2 mt-5">
         <ul className="flex justify-between  items-center ">
           <li className="font-bold">127 bình luận</li>
           <li className="font-medium flex gap-2 items-center">
             Sắp xếp theo
-            <select className="border border-[#333] dark:bg-[#000] p-1 rounded" name="" id="">
+            <select
+              className="border border-[#333] dark:bg-[#000] p-1 rounded"
+              name=""
+              id=""
+            >
               <option value="">Mới nhất</option>
               <option value="">Cũ nhất</option>
             </select>
           </li>
         </ul>
-        <div className="w-full flex border-[1px] dark:border-[#2d2d2d] pb-2 mt-[50px]  flex-col h-max items-end">
+        <div className="w-full  flex border-[1px] dark:bg-[#08090A] dark:border-[#2d2d2d] pb-2 mt-[50px]  flex-col h-max items-end">
           <textarea
             onClick={() => setShowBtnPost(true)}
-            className="w-full  h-[80px] py-2 px-3 dark:bg-[#000] text-lg font-medium md:text-xl"
+            className="w-full  h-[80px] py-2 px-3 dark:bg-[#000] dark:border-b dark:border-[#2d2d2d] dark:outline-none text-sm  font-medium md:text-xl"
             placeholder="Viết bình luận"
             name=""
             id=""
@@ -41,7 +45,7 @@ export default function ListComment(props: IListCommentProps) {
             Đăng nhập vào bài viết
           </button>
         </div>
-        <div className="w-full mt-4 flex flex-col gap-3">
+        <div className="w-full mt-4   flex flex-col gap-3">
           <CardComment />
           <CardComment />
           <CardComment />

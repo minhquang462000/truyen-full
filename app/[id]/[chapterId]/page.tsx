@@ -9,12 +9,13 @@ import { IoMdHome } from "react-icons/io";
 import { SlActionRedo } from "react-icons/sl";
 import SlideInChapterPage from "@/components/Slides/SlideInChapterPage";
 import ListInChapter from "@/components/Lists/ListInChapter";
+import CommentChapter from "@/components/Cards/CommentChapter";
 
 export interface IpageProps {}
 
 export default function page(props: IpageProps) {
   return (
-    <main className="w-full text-[#4e4e4e]  relative    bg-gradient-to-b from-[#d4d4d4] to-[#f4f4f4] ">
+    <main className="w-full text-[#4e4e4e]  relative   bg-gradient-to-b from-[#d4d4d4] to-[#f4f4f4] ">
       <HiddenHeaderChapter />
 
       <div className="dark:bg-[#222222]  dark:text-[#b1b1b1] ">
@@ -60,69 +61,55 @@ export default function page(props: IpageProps) {
             }}
           />
           <ButtonChangeChapter />
-          <div className="w-full dark:text-[#b1b1b1] grid px-2 md:px-0 lg:grid-cols-2 gap-x-4 ">
-            <Link
-              href={""}
-              className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212] hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 "
-            >
-              Bách Luyện Thành Thần - Chuyện về một kẻ tôi luyện bản thân liên
-              tục cho đến khi đạt tới{" "}
-              <b className="text-[#ff0000] mx-1">
+          <ul className="w-full dark:text-[#b1b1b1] text-sm md:text-base grid px-2 md:px-0 lg:grid-cols-2 gap-x-4 ">
+            <li className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212] hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 ">
+              <Link href={""}>
+                Bách Luyện Thành Thần - Chuyện về một kẻ tôi luyện bản thân liên
+                tục cho đến khi đạt tới{" "}
+                <b className="text-[#ff0000] mx-1">
+                  {" "}
+                  đỉnh cao nhất của toàn bộ thể giới
+                </b>{" "}
+                này
+              </Link>
+            </li>
+            <li className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212] hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 ">
+              <Link href={""}>
+                Võ Luyện Đỉnh Phong - Sống trong nghịch cảnh, phát triển trong
+                tuyệt địa, bất khuất không bỏ cuộc, mới có thể
+                <b className="text-[#ff0000] mx-1">
+                  phá vỡ được cực đạo cảu võ thuật
+                </b>
+              </Link>
+            </li>
+            <li className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212]  hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 ">
+              <Link href={""}>
+                Lạc vào thế giới người thú nơi{" "}
+                <b className="text-[#ff0000] mx-1">
+                  {" "}
+                  nam nhân đẹp như Khổng tước
+                </b>{" "}
+                còn nữ lại xấu không nỡ nhìn, cô gái lập nên{" "}
+                <b className="text-[#ff0000] mx-1">hậu cung mỹ nam</b>, cuộc đời
+                chạm đỉnh!
+              </Link>
+            </li>
+            <li className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212]  hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 ">
+              <Link href={""}>
                 {" "}
-                đỉnh cao nhất của toàn bộ thể giới
-              </b>{" "}
-              này
-            </Link>
-            <Link
-              href={""}
-              className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212] hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 "
-            >
-              Võ Luyện Đỉnh Phong - Sống trong nghịch cảnh, phát triển trong
-              tuyệt địa, bất khuất không bỏ cuộc, mới có thể
-              <b className="text-[#ff0000] mx-1">
-                phá vỡ được cực đạo cảu võ thuật
-              </b>
-            </Link>
-            <Link
-              href={""}
-              className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212]  hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 "
-            >
-              Lạc vào thế giới người thú nơi{" "}
-              <b className="text-[#ff0000] mx-1">
-                {" "}
-                nam nhân đẹp như Khổng tước
-              </b>{" "}
-              còn nữ lại xấu không nỡ nhìn, cô gái lập nên{" "}
-              <b className="text-[#ff0000] mx-1">hậu cung mỹ nam</b>, cuộc đời
-              chạm đỉnh!
-            </Link>
-            <Link
-              href={""}
-              className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212]  hover:underline border-[1px] border-dashed my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 "
-            >
-              {" "}
-              Đấu Phá Thương Khung -{" "}
-              <b className="text-[#ff0000] mx-1">
-                {" "}
-                Một thiên tài tu luyện
-              </b>{" "}
-              trong phút chốc thành phế vật, từ phế vật từng bước{" "}
-              <b className="text-[#ff0000] mx-1">khẳng định lại chính mình!</b>
-            </Link>
-          </div>
-          <div className="flex gap-2  w-max m-auto text-white font-semibold">
-            <button className="bg-[#f0ad4e] border dark:bg-[#121212] dark:text-[#eea236] dark:hover:bg-[#121212] border-[#eea236] hover:bg-[#EC971F] flex items-center rounded px-2 py-[6px] gap-1">
-              {" "}
-              <FaFlag />
-              Báo lỗi chương
-            </button>
-            <button className="bg-[#5bc0de] border dark:bg-[#121212] dark:text-[#46b8da] dark:hover:bg-[#121212] border-[#46b8da] hover:bg-[#31B0D5] flex items-center rounded px-2 py-[6px] gap-1">
-              <FaCommentAlt /> Bình luận
-            </button>
-          </div>
-          <div className="border-[#2D9FD8] dark:border-[#6d6d6d] dark:bg-[#121212] border-[1px] hidden lg:block border-dashed w-[500px]  mx-auto my-[10px] rounded-md bg-[#d9edf7] text-center px-3 py-1 ">
-            Bạn có thể dùng phím mũi tên hoặc WASD để lùi/sang chương.
-          </div>
+                Đấu Phá Thương Khung -{" "}
+                <b className="text-[#ff0000] mx-1">
+                  {" "}
+                  Một thiên tài tu luyện
+                </b>{" "}
+                trong phút chốc thành phế vật, từ phế vật từng bước{" "}
+                <b className="text-[#ff0000] mx-1">
+                  khẳng định lại chính mình!
+                </b>
+              </Link>
+            </li>
+          </ul>
+          <CommentChapter />
           <div className="w-full flex flex-col gap-3">
             <SlideInChapterPage title="truyện mới" />
             <SlideInChapterPage title="truyện hot" />

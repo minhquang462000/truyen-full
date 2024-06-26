@@ -4,7 +4,7 @@ import logoHome from "@/public/images/spriteimg_new_white_op.png";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdViewList } from "react-icons/md";
 import { IoMdArrowDropdown, IoMdSettings } from "react-icons/io";
-import { FaBook, FaSearch } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import SearchHeader from "./SearchHerder";
 

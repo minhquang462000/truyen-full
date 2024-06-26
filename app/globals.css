@@ -37,14 +37,17 @@
 }
 
 .icon-book::before {
-  content: "\e043";
+  content: "\e0bb";
   display: inline-block;
-  margin-right: 2px;
-  font-family: 'bootstrap-icons';
+  height: max-content;
+  margin-right: 8px;
+  font-family: "Font Awesome 5 Free";
 }
 .icon-pencil::before {
   content: "\270f";
+  rotate: 135deg;
+  height: max-content;
   display: inline-block;
   margin-right: 5px;
-  font-family: 'bootstrap-icons';
+  font-family: "Font Awesome 5 Free";
 }
