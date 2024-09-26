@@ -15,13 +15,13 @@ export default function page(props: IpageProps) {
       <main className="w-full  text-[#4e4e4e] dark:bg-[#222222] dark:text-[#b1b1b1] pb-5   m-auto ">
         <div className="w-full text-[#b1b1b1] bg-white dark:bg-[#2e3740] dark:shadow-none p-1  text-sm  shadow-md shadow-[#ccc]">
           <ul className="w-full text-base  md:max-w-[750px]   m-auto lg:max-w-[1200px] flex  gap-2 items-center flex-wrap ">
-            <li className="flex font-semibold items-center gap-1">
-              <IoMdHome size={25} /> Truyện
-            </li>
-            <li className='before:content-["/"] before:mr-1'>
+            <Link href={"/"}>
               {" "}
-              Truyện mới cập nhật
-            </li>
+              <li className="flex font-semibold items-center gap-1">
+                <IoMdHome size={25} /> Truyện
+              </li>
+            </Link>
+            <li className='before:content-["/"] before:mr-1'> Tên truyện</li>
           </ul>
         </div>
         <div className="w-full md:max-w-[750px] lg:max-w-[1200px] m-auto">

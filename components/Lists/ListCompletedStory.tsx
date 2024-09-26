@@ -15,13 +15,10 @@ export default function ListCompletedStory(props: IListComplatedProps) {
         </h2>
       </div>
       <div className="w-full gap-5 px-2 py-3 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-        <CardCompletedStoryHome />
-        <CardCompletedStoryHome />
-        <CardCompletedStoryHome />
-        <CardCompletedStoryHome />
-        <CardCompletedStoryHome />
-        <CardCompletedStoryHome />
-        <CardCompletedStoryHome />
+        <Link href={"/ten-truyen"}>
+          {" "}
+          <CardCompletedStoryHome />
+        </Link>
       </div>
     </section>
   );

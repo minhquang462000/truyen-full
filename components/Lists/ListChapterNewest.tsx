@@ -13,27 +13,33 @@ export default function ListChapterNewest(props: IListChapterProps) {
         </h2>
       </div>
       <ul className="mt-3 font-medium flex flex-col gap-2 pl-3">
-        <li className="flex w-full items-center gap-1 ">
-          <GiSevenPointedStar />
-          <p className=" w-full overflow-hidden truncate hover:underline">
-            {" "}
-            C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
-          </p>
-        </li>
-        <li className="flex w-full items-center gap-1 ">
-          <GiSevenPointedStar />
-          <p className=" w-full overflow-hidden truncate hover:underline">
-            {" "}
-            C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
-          </p>
-        </li>
-        <li className="flex w-full items-center gap-1 ">
-          <GiSevenPointedStar />
-          <p className=" w-full overflow-hidden truncate hover:underline">
-            {" "}
-            C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
-          </p>
-        </li>
+        <Link href={`/truyen/ten-truyen`}>
+          <li className="flex w-full items-center gap-1 ">
+            <GiSevenPointedStar />
+            <p className=" w-full overflow-hidden truncate hover:underline">
+              {" "}
+              C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
+            </p>
+          </li>
+        </Link>
+        <Link href={`/truyen/ten-truyen`}>
+          <li className="flex w-full items-center gap-1 ">
+            <GiSevenPointedStar />
+            <p className=" w-full overflow-hidden truncate hover:underline">
+              {" "}
+              C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
+            </p>
+          </li>
+        </Link>
+        <Link href={`/truyen/ten-truyen`}>
+          <li className="flex w-full items-center gap-1 ">
+            <GiSevenPointedStar />
+            <p className=" w-full overflow-hidden truncate hover:underline">
+              {" "}
+              C30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
+            </p>
+          </li>
+        </Link>
       </ul>
     </div>
   );

@@ -41,23 +41,38 @@ export default function CardItemDetail(props: ICardItemDetailProps) {
         <ul className="flex flex-col font-medium gap-2 pt-3 lg:px-1 lg:pt-8 lg border-r dark:border-dashed">
           <li className="flex items-center flex-wrap w-full ">
             <strong className="w-max  mr-2">Tác giả:</strong>
-            <Link href={""} className="hover:underline  overflow-hidden">
+            <Link
+              href={"/tac-gia/ten-tac-gia"}
+              className="hover:underline  overflow-hidden"
+            >
               Đỗ Lục Thương Sinh
             </Link>
           </li>
 
           <li className="flex items-center flex-wrap w-full ">
             <strong className="w-max inline mr-1">Thể loại:</strong>
-            <Link href={""} className='hover:underline after:content-[","]'>
+            <Link
+              href={"/the-loai/ten-the-loai"}
+              className='hover:underline after:content-[","]'
+            >
               Tiên Hiệp
             </Link>
-            <Link href={""} className='hover:underline after:content-[","]'>
+            <Link
+              href={"/the-loai/ten-the-loai"}
+              className='hover:underline after:content-[","]'
+            >
               Huyễn Huyền
             </Link>
-            <Link href={""} className='hover:underline after:content-[","]'>
+            <Link
+              href={"/the-loai/ten-the-loai"}
+              className='hover:underline after:content-[","]'
+            >
               Huyễn Huyền
             </Link>
-            <Link href={""} className='hover:underline after:content-[","]'>
+            <Link
+              href={"/the-loai/ten-the-loai"}
+              className='hover:underline after:content-[","]'
+            >
               Huyễn Huyền
             </Link>
           </li>

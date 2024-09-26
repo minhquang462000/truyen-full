@@ -18,11 +18,11 @@ export default function ListReadingStory(props: IListReadingStoryProps) {
             <IoIosArrowForward size={20} color="#8E8C8C" />
             <p className="hover:underline">
               {" "}
-              <Link href={""}>Thế Giới Hoàn Mỹ</Link>
+              <Link href={"/ten-truyen"}>Thế Giới Hoàn Mỹ</Link>
             </p>
           </span>
           <p className="w-2/5 p-2 md:w-1/2 lg:w-2/5 dark:text-[#A9CF54] text-[#31708f] ">
-            <Link href={""}>Đọc tiếp C1</Link>
+            <Link href={"/ten-truyen/ten-chap"}>Đọc tiếp C1</Link>
           </p>
         </li>
       </ul>

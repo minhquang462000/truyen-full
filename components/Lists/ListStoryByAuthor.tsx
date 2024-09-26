@@ -17,15 +17,15 @@ export default function ListStoryByAuthor(props: IListStoryByAuthorProps) {
             <ul className="w-full mt-3 text-sm flex flex-col">
                 <li className="flex dark:border-none dark:bg-[#292929]  items-center py-2 border-b border-dashed border-[#ccc]  hover:underline">
                     <TbArrowBadgeRightFilled className="text-[20px]" />
-                    <Link href={""} className="w-[100%-20px] overflow-hidden truncate hover:underline">Một ngôi sao sáng ,Hai ngôi sáng sao</Link>
+                    <Link href={"/ten-truyen"} className="w-[100%-20px] overflow-hidden truncate hover:underline">Một ngôi sao sáng ,Hai ngôi sáng sao</Link>
                 </li>
                 <li className="flex dark:border-none dark:bg-[#292929]  items-center py-2 border-b border-dashed border-[#ccc]  hover:underline">
                     <TbArrowBadgeRightFilled className="text-[20px]" />
-                    <Link href={""} className="w-[100%-20px] overflow-hidden truncate hover:underline">Một ngôi sao sáng ,Hai ngôi sáng sao</Link>
+                    <Link href={"/ten-truyen"} className="w-[100%-20px] overflow-hidden truncate hover:underline">Một ngôi sao sáng ,Hai ngôi sáng sao</Link>
                 </li>
                 <li className="flex dark:border-none dark:bg-[#292929]  items-center py-2 border-b border-dashed border-[#ccc]  hover:underline">
                     <TbArrowBadgeRightFilled className="text-[20px]" />
-                    <Link href={""} className="w-[100%-20px] overflow-hidden truncate hover:underline">Một ngôi sao sáng ,Hai ngôi sáng sao</Link>
+                    <Link href={"/ten-truyen"} className="w-[100%-20px] overflow-hidden truncate hover:underline">Một ngôi sao sáng ,Hai ngôi sáng sao</Link>
                 </li>
             </ul>
         </div>

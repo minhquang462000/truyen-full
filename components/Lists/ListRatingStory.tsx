@@ -10,19 +10,19 @@ export default function ListRatingStory(props: IListRatingStoryProps) {
         <span className="w-9 h-9 font-semibold bg-[#e74c3c]  text-white border-[#e74c3c] rounded-full flex items-center justify-center">
           1
         </span>
-        <span className="w-[100%-36px]">
+        <div className="w-[100%-36px]">
           <p className="w-full overflow-hidden text-[#083767]  dark:text-[#92bb35] font-medium hover:underline truncate">
-            <Link href="">Thần Đạo Ma Tôn</Link>
+            <Link href="/truyen">Thần Đạo Ma Tôn</Link>
           </p>
           <span className="flex text-sm w-full overflow-hidden truncate  items-center">
-            <Link className="hover:underline" href="">
+            <Link className="hover:underline" href="/the-loai/ten-the-loai">
               Tiên hiệp,
             </Link>
-            <Link className="hover:underline" href="">
+            <Link className="hover:underline" href="/the-loai/ten-the-loai">
               Huyễn huyền
             </Link>
           </span>
-        </span>
+        </div>
       </li>
       <li className="border-b border-[#ccc] dark:border-none dark:bg-[#292929] p-2 flex gap-3 items-center border-dashed">
         <span className="w-9 h-9 font-semibold bg-[#5eb949] text-white border-[#5eb949] rounded-full flex items-center justify-center">
@@ -30,7 +30,7 @@ export default function ListRatingStory(props: IListRatingStoryProps) {
         </span>
         <span className="w-[100%-36px]">
           <p className="w-full overflow-hidden text-[#083767]  dark:text-[#92bb35] font-medium hover:underline truncate">
-            <Link href="">Thần Đạo Ma Tôn</Link>
+          <Link href="/truyen">Thần Đạo Ma Tôn</Link>
           </p>
           <span className="flex text-sm w-full overflow-hidden truncate  items-center">
             <Link className="hover:underline" href="">

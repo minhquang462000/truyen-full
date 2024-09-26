@@ -17,7 +17,7 @@ export default function Home() {
             đầy đủ và cập nhật liên tục.
           </p>
         </div>
-        <div className="w-full  md:max-w-[750px]   m-auto lg:max-w-[1200px] ">
+        <section className="w-full  md:max-w-[750px]   m-auto lg:max-w-[1200px] ">
           <div className="w-full dark:text-white dark:border-none  relative border-b border-[#ccc] flex items-center font-medium justify-between">
             <h2 className="flex gap-1 p-1 border-b border-[#333] dark:border-none md:pl-0 text-xl items-center">
               <Link href="">{"truyện hot".toUpperCase()}</Link>
@@ -32,43 +32,7 @@ export default function Home() {
             </select>
           </div>
           <div className="w-full grid grid-cols-4 gap-3 md:grid-cols-5 lg:grid-cols-8 p-3">
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
-              {" "}
-              <CardStoryHome />
-            </Link>
-            <Link href={""}>
+            <Link href={"/ten-truyen"}>
               {" "}
               <CardStoryHome />
             </Link>
@@ -90,7 +54,7 @@ export default function Home() {
             </div>
           </section>
           <ListCompletedStory />
-        </div>
+        </section>
       </main>
     </MainLayout>
   );

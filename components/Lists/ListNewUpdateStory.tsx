@@ -9,7 +9,7 @@ export default function ListNewUpdateStory(props: IListNewUpdateStoryProps) {
     <div className="w-full lg:text-base  font-medium">
       <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
         <h2 className="flex dark:text-white  dark:border-none text-lg pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
-          <Link href=""> TRUYỆN MỚI CẬP NHẬT</Link>
+          <Link href="/the-loai/ten-the-loai"> TRUYỆN MỚI CẬP NHẬT</Link>
           <IoIosArrowForward size={25} />
         </h2>
         <select
@@ -27,7 +27,7 @@ export default function ListNewUpdateStory(props: IListNewUpdateStoryProps) {
               <IoIosArrowForward size={20} color="#8E8C8C" />
               <p className="hover:underline">
                 {" "}
-                <Link href={""}>Thế Giới Hoàn Mỹ</Link>
+                <Link href={"/ten-truyen"}>Thế Giới Hoàn Mỹ</Link>
               </p>
             </span>
             <span className="border rounded px-1 border-[#FD8383] text-[#FD8383]">
@@ -41,12 +41,12 @@ export default function ListNewUpdateStory(props: IListNewUpdateStoryProps) {
             </span>
           </span>
           <div className="hidden w-1/4 lg:w-1/5 md:block border-r border-dashed p-2 md:px-4 dark:border-none border-[#b8b8b8] overflow-hidden truncate">
-            <Link className="hover:underline" href={""}>
+            <Link className="hover:underline" href={"/the-loai/ten-the-loai"}>
               Đam Mỹ,
             </Link>
           </div>
           <p className="w-1/4 p-2  border-r border-dashed hover:underline md:px-4 dark:border-none  border-[#b8b8b8] dark:text-[#A9CF54] text-[#31708f] ">
-            <Link href={""}>Chương 46</Link>
+            <Link href={"/ten-truyen/ten-chap"}>Chương 46</Link>
           </p>
           <p className=" hidden lg:block p-2 md:px-4 w-1/5">2 giờ trước</p>
         </li>

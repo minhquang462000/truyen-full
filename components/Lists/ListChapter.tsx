@@ -13,13 +13,16 @@ export default function ListChapter(props: IListChapterProps) {
         </h2>
       </div>
       <ul className="mt-3 text-sm font-medium grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-x-8 px-5">
-        <li className="flex w-full items-center gap-1 ">
-          <GiSevenPointedStar />
-          <p className=" w-full overflow-hidden truncate hover:underline">
-            {" "}
-            Chương 30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
-          </p>
-        </li>
+        <Link href={"/truyen/ten-truyen"}>
+          <li className="flex w-full items-center gap-1 ">
+            <GiSevenPointedStar/>
+
+            <p className=" w-full overflow-hidden truncate hover:underline">
+              {" "}
+              Chương 30: 30: Ngươi Nếu Không Phục Tiến Lên Nhận Lãnh Cái Chết
+            </p>
+          </li>
+        </Link>
       </ul>
       <RootPagination />
     </div>
