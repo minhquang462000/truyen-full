@@ -25,7 +25,7 @@ export default function MainHeader(props: IMainHeaderProps) {
     }
   }, [theme]);
   return (
-    <header className="w-full text-sm lg:hidden  ">
+    <header className="w-full sticky top-0 z-50 text-sm lg:hidden  ">
       <div className="w-full  bg-[#14425d] dark:bg-[#242F39] pt-2   m-auto">
         <div className="w-full md:max-w-[750px] lg:max-w-[1200px] m-auto">
           <div className="items-center  px-3 pb-2 flex justify-between ">
@@ -43,8 +43,8 @@ export default function MainHeader(props: IMainHeaderProps) {
             </button>
           </div>
           <ul
-            className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-none border-white ${
-              showMenu ? "max-h-[2000px] py-2 " : "max-h-0 overflow-hidden"
+            className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-none  ${
+              showMenu ? "max-h-[2000px] border-white py-2 " : "max-h-0 invisible overflow-hidden"
             }`}
           >
             <li>

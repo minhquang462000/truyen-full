@@ -8,7 +8,7 @@ export default function ListReadingStory(props: IListReadingStoryProps) {
   return (
     <div className="w-full text-sm   font-medium">
       <div className="w-full relative  border-b dark:border-none border-[#ccc] flex items-center font-medium justify-between">
-        <h2 className="flex gap-1 dark:text-white lg:text-base text-xl dark:border-none pl-1 border-b border-[#333] md:pl-0 pb-2 items-center">
+        <h2 className="flex gap-1 dark:text-white lg:text-base text-lg md:text-xl dark:border-none pl-1 border-b border-[#333] md:pl-0 pb-2 items-center">
           <Link href=""> TRUYỆN ĐANG ĐỌC</Link>
         </h2>
       </div>

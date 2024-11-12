@@ -1,10 +1,16 @@
+import { ICategory } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
 import Link from "next/link";
 import * as React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 export interface IListCategoryHomeProps {}
 
-export default function ListCategoryHome(props: IListCategoryHomeProps) {
+export default function ListCategoryHome({
+  categories,
+}: {
+  categories: ICategory[];
+}) {
   return (
     <div className="w-full mt-5">
       <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
@@ -13,21 +19,20 @@ export default function ListCategoryHome(props: IListCategoryHomeProps) {
         </h2>
       </div>
       <ul className="w-full dark:bg-[#2c2c2c] p-1 text-center  mt-3 grid grid-cols-2">
-        <li className="w-full p-1 overflow-hidden truncate hover:underline">
-          <Link href="/the-loai/ten-the-loai">Ngon Lù</Link>
-        </li>
-        <li className="w-full p-1 overflow-hidden truncate hover:underline">
-          <Link href="/the-loai/ten-the-loai">Ngon Lù</Link>
-        </li>
-        <li className="w-full p-1 overflow-hidden truncate hover:underline">
-          <Link href="/the-loai/ten-the-loai">Ngon Lù</Link>
-        </li>
-        <li className="w-full p-1 overflow-hidden truncate hover:underline">
-          <Link href="/the-loai/ten-the-loai">Ngon Lù</Link>
-        </li>
-        <li className="w-full p-1 overflow-hidden truncate hover:underline">
-          <Link href="/the-loai/ten-the-loai">Ngon Lù</Link>
-        </li>
+        {categories?.map((category, index) => (
+          <li
+            key={index}
+            className="w-full p-1  font-medium text-start  hover:underline"
+          >
+            <Link
+              href={`/the-loai/${convertToSlug(category?.name)}-${convertToSlug(
+                category?._id
+              )}.html`}
+            >
+              {category?.name?.split(" ").slice(0, 2).join(" ")}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
