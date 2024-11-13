@@ -1,6 +1,6 @@
 import iconFull from "@/public/images/full-label.png";
 import Image from "next/image";
-export interface ICardStoryHomeProps {}
+export interface ICardStoryHomeProps { }
 import { IBook } from "@/interfaces";
 import Link from "next/link";
 import { convertToSlug } from "@/utils/converToSlug";
@@ -17,7 +17,8 @@ export default function CardStoryHome({ book }: { book: IBook }) {
           alt=""
         />
       </Link>
-      <h3 className="bg-[#333]  line-clamp-2  rounded-b absolute w-full bottom-0 text-[10px]    md:text-xs font-medium  bg-opacity-70 left-0 text-white text-center   py-[3px]  ">
+      <h3 style={{ textShadow: "1px 2px 2px #000" }}
+     className="bg-[#333]  py-[6px] px-1 truncate overflow-hidden  rounded-b absolute w-full bottom-0 md:text-xs leading-3  text-[10px]  font-medium  bg-opacity-70 left-0 text-white text-center   ">
         <Link
           href={`/${convertToSlug(book?.name)}-${convertToSlug(
             book?._id

@@ -47,12 +47,12 @@ export default function ListBookHot({
   return (
     <div>
       <div className="w-full dark:text-white dark:border-none  relative border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h2 className="flex gap-1 p-1 border-b border-[#333] dark:border-none md:pl-0 text-lg md:text-xl items-center">
+        <h3 className="flex gap-1 p-1 border-b border-[#333] dark:border-none md:pl-0 text-lg md:text-xl items-center">
           <Link href="">{"truyện hot".toUpperCase()}</Link>
           <ImFire />
-        </h2>
+        </h3>
         <select
-          className="border-[1px] text-sm bg-transparent outline-none focus:border-[#26b7fe] border-[#333] mt-[5px]  p-1 py-2  w-[120px]"
+          className="border-[1px] mr-2 lg:mr-0 text-sm bg-transparent outline-none focus:border-[#26b7fe] border-[#333] mt-[5px]  p-1 py-2  w-[120px]"
           name="categoryFilter"
           onChange={(e) => {
             const selectedOption = e.target.options[e.target.selectedIndex];
@@ -64,8 +64,8 @@ export default function ListBookHot({
           }}
           id=""
         >
-          <option value="">TẤT CẢ</option>
-          {categories.map((category, index) => (
+          <option  value="">TẤT CẢ</option>
+          {categories?.map((category, index) => (
             <option key={index} value={category?._id}>
               {category?.name}
             </option>
@@ -75,7 +75,7 @@ export default function ListBookHot({
       <div className="w-full md:grid-cols-5 flex  p-4 gap-5 lg:grid-cols-8">
         <div className="w-1/4 hidden lg:block aspect-[3/4] relative hover:scale-105 transition-all duration-300 ">
           <Link
-            href={`/${convertToSlug(listBook[0].name)}-${convertToSlug(
+            href={`/${convertToSlug(listBook[0]?.name)}-${convertToSlug(
               listBook[0]?._id
             )}.html`}
           >
@@ -87,7 +87,8 @@ export default function ListBookHot({
               alt=""
             />
           </Link>
-          <h3 className="bg-[#333] line-clamp-1 rounded-b absolute w-full bottom-0 text-[10px] leading-3   md:text-xs font-medium  bg-opacity-70 left-0 text-white text-center py-[6px] text-wrap ">
+          <h3 style={{textShadow:"1px 2px 2px #000"}}
+           className="bg-[#333]  px-2 truncate overflow-hidden font- rounded-b absolute w-full bottom-0 text-xs leading-3   md:text-sm font-medium  bg-opacity-70 left-0 text-white text-center py-[6px] text-wrap ">
             <Link
               href={`/${convertToSlug(listBook[0].name)}-${convertToSlug(
                 listBook[0]?._id

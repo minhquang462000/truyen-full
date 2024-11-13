@@ -19,6 +19,10 @@ const config: Config = {
         "max-height": "max-height",
         "max-width": "max-width",
       },
+      fontFamily: {
+        sans_cs: ["Roboto", "sans-serif"],
+        arial:["Arial"]
+      },
     },
   },
   plugins: [],

@@ -3,8 +3,9 @@ import { useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { LuDot } from "react-icons/lu";
-
-export interface ICardCommentProps {}
+import default_avt from "@/public/images/default-avatar.jpg"
+import Image from "next/image";
+export interface ICardCommentProps { }
 
 export default function CardComment(props: ICardCommentProps) {
   const [showMore, setShowMore] = useState(true);
@@ -12,9 +13,11 @@ export default function CardComment(props: ICardCommentProps) {
   return (
     <div className="w-full flex gap-3 relative group text-xs md:text-sm text-start items-start">
       <div className="w-10 h-10 mt-1 border-b bg-[#ccc]">
-        <img
+        <Image
           className="w-full h-full object-cover"
-          src="https://lh3.googleusercontent.com/pw/AP1GczNiG_xTkYcgHpfg596JzAiukXWEUnpXNjog0B3aTbNhPaErprQntAdZmxPxvUKuKodsBg_qpWdDf6Zg7hToqncivR-M2d1X3J-Hs6qHdqrNEsNRDTy0Q2nr2N_4hSCFNJQAYp-5XfjbhOeUoGFEpft7=w215-h322-s-no-gm?authuser=1"
+          width={40}
+          height={40}
+          src={default_avt}
           alt=""
         />
       </div>
@@ -24,7 +27,7 @@ export default function CardComment(props: ICardCommentProps) {
         </h4>
         {showMore ? (
           <div className="w-full text-start">
-            <p className="font-medium">Truyện như cccc!</p>
+            <p className="font-medium">Truyện hay!</p>
             <ul className="flex md:text-[15px] text-[10px] items-center font-medium text-[#4267b2] ">
               <li className="hover:underline cursor-pointer">Thích</li>
               <span>
@@ -68,9 +71,8 @@ export default function CardComment(props: ICardCommentProps) {
       </div>
       <button
         onClick={() => setShowMenu(!showMenu)}
-        className={`absolute  top-0 right-2 ${
-          showMenu ? "block" : "group-hover:block hidden"
-        }`}
+        className={`absolute  top-0 right-2 ${showMenu ? "block" : "group-hover:block hidden"
+          }`}
       >
         <IoIosArrowDown size={25} color="#999" />
       </button>
@@ -80,16 +82,14 @@ export default function CardComment(props: ICardCommentProps) {
             onClick={() => {
               setShowMore(false), setShowMenu(false);
             }}
-            className={`px-3 py-1 hover:text-white w-full text-start hover:bg-[#4267b2] ${
-              !showMore && "hidden"
-            }`}
+            className={`px-3 py-1 hover:text-white w-full text-start hover:bg-[#4267b2] ${!showMore && "hidden"
+              }`}
           >
             Thu gọn bình luận
           </button>
           <button
-            className={`px-3 py-1 hover:text-white w-full text-start hover:bg-[#4267b2] ${
-              !showMore && "hidden"
-            }`}
+            className={`px-3 py-1 hover:text-white w-full text-start hover:bg-[#4267b2] ${!showMore && "hidden"
+              }`}
           >
             Đánh dấu là span
           </button>

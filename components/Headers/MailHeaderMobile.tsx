@@ -5,25 +5,68 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdViewList } from "react-icons/md";
 import { IoMdArrowDropdown, IoMdSettings } from "react-icons/io";
 import { FaBook } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchHeader from "./SearchHerder";
+import { ICategory } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
+import PopUpCategoryHeader from "../PopUp/PopUpCategoryHeader";
+import PopUpListHeader from "../PopUp/PopUpListHeader";
+import PoUpClassifyCharHeader from "../PopUp/PoUpClassifyCharHeader";
+import ButtonChangeTheme from "../ButtonChangeTheme";
 
-export interface IMainHeaderProps {}
+export interface IMainHeaderProps {
+  categories: ICategory[]
+}
 
-export default function MainHeader(props: IMainHeaderProps) {
+export default function MainHeader({ categories }: IMainHeaderProps) {
   const [showMenu, setShowMenu] = useState(false);
   const [showList, setShowList] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const [showSetting, setShowSetting] = useState(false);
   const [showClassifyChart, setShowClassifyChart] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const wrapperRefCategory = useRef<HTMLDivElement | null>(null);
+  const wrapperRefList = useRef<HTMLDivElement | null>(null);
+  const wrapperRefClassifyChart = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event: any) {
+      if (
+        wrapperRefList.current &&
+        !wrapperRefList.current!.contains(event.target) &&
+        showList
+      ) {
+        setShowList(false);
+      }
+      if (
+        wrapperRefCategory.current &&
+        !wrapperRefCategory.current!.contains(event.target) &&
+        showCategories
+      ) {
+        setShowCategories(false);
+      }
+      if (
+        wrapperRefClassifyChart.current &&
+        !wrapperRefClassifyChart.current!.contains(event.target) &&
+        showClassifyChart
+      ) {
+        setShowClassifyChart(false);
+      }
     }
-  }, [theme]);
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [
+    wrapperRefList,
+    showList,
+    wrapperRefCategory,
+    showCategories,
+    wrapperRefClassifyChart,
+    showClassifyChart,
+  ]);
   return (
     <header className="w-full sticky top-0 z-50 text-sm lg:hidden  ">
       <div className="w-full  bg-[#14425d] dark:bg-[#242F39] pt-2   m-auto">
@@ -35,135 +78,45 @@ export default function MainHeader(props: IMainHeaderProps) {
                 style={{ backgroundImage: `url(${logoHome.src})` }}
               />
             </Link>
-            <button
-              onClick={() => setShowMenu(!showMenu)}
-              className={`text-[#888888] flex justify-center border hover:bg-[#ddd] border-[#ddd] items-center w-[44px] h-[34px]  rounded`}
-            >
-              <IoReorderThreeOutline size={40} />
-            </button>
+            <div className="flex gap-2 items-center">
+              <ButtonChangeTheme />
+              <button
+                onClick={() => setShowMenu(!showMenu)}
+                className={`text-[#888888] flex justify-center border hover:bg-[#ddd] border-[#ddd] items-center w-[44px] h-[34px]  rounded`}
+              >
+                <IoReorderThreeOutline size={40} />
+              </button>
+            </div>
           </div>
           <ul
-            className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-none  ${
-              showMenu ? "max-h-[2000px] border-white py-2 " : "max-h-0 invisible overflow-hidden"
-            }`}
+            className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-none  ${showMenu ? "max-h-[2000px] border-white py-2 " : "max-h-0 invisible overflow-hidden"
+              }`}
           >
-            <li>
-              <div
-                onClick={() => {
-                  setShowList(!showList),
-                    setShowCategories(false),
-                    setShowClassifyChart(false),
-                    setShowSetting(false);
-                }}
-                className={`flex gap-[2px]  items-center p-3 ${
-                  showList && "bg-[#2f566d]"
-                }`}
-              >
-                <MdViewList size={22} />
-                Danh sách
-                <IoMdArrowDropdown size={16} />
-              </div>
-              <ul className={`ml-7 ${!showList && "hidden"}  overflow-hidden`}>
-                <li className="py-2">Truyện mới cập nhật</li>
-              </ul>
-            </li>
-            <li>
-              <div
-                onClick={() => {
-                  setShowCategories(!showCategories),
-                    setShowList(false),
-                    setShowClassifyChart(false),
-                    setShowSetting(false);
-                }}
-                className={`flex gap-[2px]  items-center p-3 ${
-                  showCategories && "bg-[#2f566d]"
-                }`}
-              >
-                <MdViewList size={22} />
-                Thể loại
-                <IoMdArrowDropdown size={16} />
-              </div>
-              <ul
-                className={`ml-7 ${
-                  !showCategories && "hidden"
-                }  overflow-hidden`}
-              >
-                <li className="py-2">Truyện mới cập nhật</li>
-              </ul>
-            </li>
-            <li>
-              <div
-                onClick={() => {
-                  setShowClassifyChart(!showClassifyChart),
-                    setShowCategories(false),
-                    setShowList(false),
-                    setShowSetting(false);
-                }}
-                className={`flex gap-[2px]  items-center p-3 ${
-                  showClassifyChart && "bg-[#2f566d]"
-                }`}
-              >
-                <MdViewList size={22} />
-                Phân loại theo Chương
-                <IoMdArrowDropdown size={16} />
-              </div>
-              <ul
-                className={`ml-7 ${
-                  !showClassifyChart && "hidden"
-                }  overflow-hidden`}
-              >
-                <li className="py-2">
-                  <Link href={""}>Dưới 100 chương</Link>
-                </li>
-                <li className="py-2">
-                  <Link href={""}>100-500 chương</Link>
-                </li>
-                <li className="py-2">
-                  <Link href={""}>500-1000 chương</Link>
-                </li>
-                <li className="py-2">
-                  <Link href={""}>Trên 1000 chương</Link>
-                </li>
-              </ul>
-            </li>
-
+            <PopUpListHeader
+              wrapperRefList={wrapperRefList}
+              setShowList={setShowList}
+              showList={showList}
+              setShowCategories={setShowCategories}
+              setShowClassifyChart={setShowClassifyChart}
+            />
+            <PopUpCategoryHeader
+              categories={categories}
+              setShowCategories={setShowCategories}
+              setShowClassifyChart={setShowClassifyChart}
+              setShowList={setShowList}
+              showCategories={showCategories}
+              wrapperRefCategory={wrapperRefCategory}
+            />
+            <PoUpClassifyCharHeader
+              wrapperRefClassifyChart={wrapperRefClassifyChart}
+              setShowList={setShowList}
+              showClassifyChart={showClassifyChart}
+              setShowCategories={setShowCategories}
+              setShowClassifyChart={setShowClassifyChart}
+            />
             <li className="flex gap-[2px]  items-center p-3 ">
               <FaBook size={16} />
               Truyện Tranh
-            </li>
-            <li>
-              <div
-                onClick={() => {
-                  setShowSetting(!showSetting),
-                    setShowCategories(false),
-                    setShowList(false),
-                    setShowClassifyChart(false);
-                }}
-                className={`flex gap-[2px] p-3 items-center ${
-                  showSetting && "bg-[#2f566d]"
-                }`}
-              >
-                <IoMdSettings size={22} />
-                Tùy chỉnh
-                <IoMdArrowDropdown size={16} />
-              </div>
-              <div
-                className={`p-3 ${
-                  !showSetting && "hidden"
-                }  flex flex-col gap-1  overflow-hidden`}
-              >
-                <label htmlFor="setting">Màu nền</label>
-                <select
-                  name="setting"
-                  value={theme}
-                  onChange={(e) => setTheme(e.target.value)}
-                  className="bg-white text-[#666] p-2 px-3 outline-none rounded"
-                  id=""
-                >
-                  <option value="light">Xám nhạt</option>
-                  <option value="dark">Màu tối</option>
-                </select>
-              </div>
             </li>
             <SearchHeader />
           </ul>

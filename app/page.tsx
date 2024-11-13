@@ -11,6 +11,7 @@ import { getListCategory } from "@/api/category";
 import { IoIosArrowForward } from "react-icons/io";
 import { getListTags } from "@/api/tags";
 import ListBookHot from "@/components/Lists/ListBookHot";
+import ListTag from "@/components/Lists/ListTag";
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default async function Home() {
   const booksHot = await getListBooksNoTotal({ page: 1, limit: 13 } as IFilter);
@@ -20,7 +21,6 @@ export default async function Home() {
     limit: 24,
     status: 2,
   } as IFilter);
-  const listTags = await getListTags();
   return (
     <MainLayout>
       <main className="w-full dark:bg-[#222222] dark:text-[#b1b1b1] pb-5">
@@ -49,22 +49,7 @@ export default async function Home() {
               <div className="border border-[#d9e1e4] p-3 mt-5 dark:bg-transparent dark:border-none rounded bg-[#ecf0f1]">
                 <ListCategoryHome categories={categories} />
               </div>
-              <div className="w-full relative dark:border-none mt-4  border-b border-[#ccc] flex items-center font-medium justify-between">
-                <h4 className="flex dark:text-white  dark:border-none  pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
-                  <Link href="/the-loai/ten-the-loai"> TAGS</Link>
-                  <IoIosArrowForward size={20} />
-                </h4>
-              </div>
-              <ul className="flex mt-4 justify-center flex-wrap gap-2">
-                {listTags?.map((tag: ITag, index: number) => (
-                  <li
-                    className="border rounded-md text-sm border-gray-300 px-2"
-                    key={index}
-                  >
-                    {tag?.name}
-                  </li>
-                ))}
-              </ul>
+              <ListTag />
             </div>
           </div>
           <ListCompletedStory listBookComplete={bookComplete} />

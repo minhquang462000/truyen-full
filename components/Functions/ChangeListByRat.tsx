@@ -1,28 +1,29 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ListRatingStory from "../Lists/ListRatingStory";
-
-export interface IAppProps {}
-
-export default function ChangeListByRat(props: IAppProps) {
-  const [activeRat, setActiveRat] = useState<number>(0);
-
-  const renderListByIndex = () => {
-    switch (activeRat) {
-      case 0:
-        return <ListRatingStory />;
-      case 1:
-        return <ListRatingStory />;
-      case 2:
-        return <ListRatingStory />;
-      default:
-        return null;
-    }
-  };
+import { IBook } from "@/interfaces";
+import axios from "axios";
+export interface IAppProps { }
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL
+export default function ChangeListByRat({ books }: { books: IBook[] }) {
+  const [activeRat, setActiveRat] = useState<string>("weekly");
+  const [bookData, setBookData] = useState<IBook[]>(books)
   useEffect(() => {
-    renderListByIndex();
-  }, [activeRat]);
+    const fetchDataBookByRat = async () => {
+      try {
+        const res = await axios.get(`${DOMAIN}/api/client/books-views?keyWord=${activeRat}`)
+        setBookData(res.data)
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    if (activeRat !== null) {
+      fetchDataBookByRat();
+    }
+  }, [activeRat])
+  const renderListByIndex = useCallback(() => {
+    return <ListRatingStory books={bookData} />;
+  }, [bookData]);
   return (
     <div className="w-full text-sm ">
       <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
@@ -32,32 +33,29 @@ export default function ChangeListByRat(props: IAppProps) {
       </div>
       <div className="flex w-full mt-4 text-[12px] font-semibold justify-center items-center gap-2">
         <button
-          onClick={() => setActiveRat(0)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e] hover:text-white ${
-            activeRat === 0
-              ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
-              : "text-[#4e4e4e] "
-          }`}
+          onClick={() => setActiveRat("weekly")}
+          className={`border min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e] hover:text-white ${activeRat === "weekly"
+            ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
+            : "text-[#4e4e4e] "
+            }`}
         >
           NGÀY
         </button>
         <button
-          onClick={() => setActiveRat(1)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e] hover:text-white ${
-            activeRat === 1
-              ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
-              : "text-[#4e4e4e] "
-          }`}
+          onClick={() => setActiveRat("monthly")}
+          className={`border min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e] hover:text-white ${activeRat === "monthly"
+            ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
+            : "text-[#4e4e4e] "
+            }`}
         >
           THÁNG
         </button>
         <button
-          onClick={() => setActiveRat(2)}
-          className={`border-2 min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e]  hover:text-white ${
-            activeRat === 2
-              ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
-              : "text-[#4e4e4e] "
-          }`}
+          onClick={() => setActiveRat("")}
+          className={`border min-w-[60px] px-4  py-[6px] border-[#aaa]  rounded-full hover:bg-[#4e4e4e]  hover:text-white ${activeRat === ""
+            ? "bg-[#4e4e4e] border-[#4e4e4e] text-white"
+            : "text-[#4e4e4e] "
+            }`}
         >
           ALL TIME
         </button>

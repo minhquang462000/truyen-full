@@ -39,7 +39,7 @@ export default function ListNewUpdateStory({
           <IoIosArrowForward size={20} />
         </h4>
         <select
-          className="border-[1px] text-sm bg-transparent outline-none focus:border-[#26b7fe] border-[#333] mt-[5px]  p-1 py-2  w-[120px]"
+          className="border-[1px] mr-2 lg:mr-0 text-sm bg-transparent outline-none focus:border-[#26b7fe] border-[#333] mt-[5px]  p-1 py-2  w-[120px]"
           name="categoryFilter"
           onChange={(e) => {
             const selectedOption = e.target.options[e.target.selectedIndex];

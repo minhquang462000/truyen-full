@@ -51,3 +51,13 @@
   margin-right: 5px;
   font-family: "Font Awesome 5 Free";
 }
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/RobotoCondensed-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("/fonts/ARIAL.ttf") format("truetype");
+}
