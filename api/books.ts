@@ -95,6 +95,13 @@ export async function getListBooksNoTotal(query: IFilter) {
     return null;
   }
 }
+export const updateViews = async (id: string) => {
+  try {
+    await axios.put(`${API_URL}/api/client/books-views/${id}`);
+  } catch (e) {
+    console.log(e);
+  }
+}
 export const getOneBook = async (id: string) => {
   const cookie = await cookies();
   const token = cookie.get("token")?.value;

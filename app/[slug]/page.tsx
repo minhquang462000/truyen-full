@@ -55,7 +55,10 @@ export default async function page({ params }: PropParams) {
               </li>
             </Link>
             <Link href={""}>
-              <li className='before:content-["/"] hover:underline before:mr-1'> {bookData?.name}</li>
+              <li className='before:content-["/"] hover:underline before:mr-1'>
+                {" "}
+                {bookData?.name}
+              </li>
             </Link>
           </ul>
         </div>
