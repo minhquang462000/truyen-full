@@ -1,3 +1,5 @@
+'use client';
+import { handleUpdateView } from "@/api/updateView";
 import { IBook } from "@/interfaces";
 import { convertToSlug } from "@/utils/converToSlug";
 import Image from "next/image";
@@ -7,7 +9,7 @@ export interface ICardComplatedStpryHomeProps {}
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function CardCompletedStoryHome({ book }: { book: IBook }) {
   return (
-    <div className=" text-xs md:text-sm  w-full text-center">
+    <div onClick={() => handleUpdateView(book._id)} className=" text-xs md:text-sm  w-full text-center">
       <Image
         className="w-full aspect-[2/3] border-[3px] border-black object-cover"
         width={150}

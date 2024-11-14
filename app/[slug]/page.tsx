@@ -1,10 +1,11 @@
-import { getListBooksNoTotal, getOneBook } from "@/api/books";
+import { getListBooksByViews, getListBooksNoTotal, getOneBook } from "@/api/books";
 import CardItemDetail from "@/components/Cards/CardItemDetail";
 import ChangeListByRat from "@/components/Functions/ChangeListByRat";
 import ListChapter from "@/components/Lists/ListChapter";
 import ListComment from "@/components/Lists/ListCommemt";
 import ListStoryByAuthor from "@/components/Lists/ListStoryByAuthor";
 import ListTag from "@/components/Lists/ListTag";
+import TitlePage from "@/components/TitlePage";
 import { IFilter, PropParams } from "@/interfaces";
 import { MainLayout } from "@/layouts";
 import { Metadata, ResolvingMetadata } from "next";
@@ -32,12 +33,11 @@ export async function generateMetadata(
     },
   };
 }
-export default async function page({ params }: PropParams) {
+export default async function page({ params, searchParams }: PropParams) {
   const slug = (await params).slug?.toString();
   const id = slug?.split("-").pop()?.split(".")[0];
   const bookData = await getOneBook(id as string);
-  console.log(bookData);
-  const booksHot = await getListBooksNoTotal({ page: 1, limit: 10 } as IFilter);
+  const bookByView = await getListBooksByViews("weekly");
   const bookSameAuthor = await getListBooksNoTotal({
     author: bookData?.authors[0]._id,
     page: 1,
@@ -46,22 +46,7 @@ export default async function page({ params }: PropParams) {
   return (
     <MainLayout>
       <main className="w-full  text-[#4e4e4e] font-arial  dark:bg-[#222222] dark:text-[#b1b1b1] pb-5   m-auto ">
-        <div className="w-full text-[#b1b1b1] bg-white dark:bg-[#2e3740] dark:shadow-none p-1  text-sm  shadow-md shadow-[#ccc]">
-          <ul className="w-full text-sm font-medium  md:max-w-[750px]   m-auto lg:max-w-[1200px] flex  gap-2 items-center flex-wrap ">
-            <Link href={"/"}>
-              {" "}
-              <li className="flex font-semibold hover:underline items-center gap-1">
-                <IoMdHome size={22} /> Truyện
-              </li>
-            </Link>
-            <Link href={""}>
-              <li className='before:content-["/"] hover:underline before:mr-1'>
-                {" "}
-                {bookData?.name}
-              </li>
-            </Link>
-          </ul>
-        </div>
+       <TitlePage title={bookData?.name}/>
         <div className="w-full md:max-w-[750px] lg:max-w-[1200px] m-auto">
           <div className="w-full dark:border-none border-b mt-5 border-[#ccc] flex items-end justify-between font-medium ">
             <h2 className=" text-xl pb-2 border-b dark:text-white dark:border-none border-[#333] pl-1 md:pl-0">
@@ -76,7 +61,7 @@ export default async function page({ params }: PropParams) {
             <div className="hidden  lg:block">
               <ListStoryByAuthor books={bookSameAuthor} />
               <ListTag />
-              <ChangeListByRat books={booksHot} />
+              <ChangeListByRat books={bookByView} />
             </div>
             <div className="w-full lg:col-span-3">
               <ListComment />

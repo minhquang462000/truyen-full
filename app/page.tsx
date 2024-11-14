@@ -1,15 +1,11 @@
 import { getListBooksNoTotal } from "@/api/books";
-import CardStoryHome from "@/components/Cards/CardStoryHome";
 import ListCategoryHome from "@/components/Lists/ListCategoryHome";
 import ListCompletedStory from "@/components/Lists/ListCompletedStory";
 import ListNewUpdateStory from "@/components/Lists/ListNewUpdateStory";
 import ListReadingStory from "@/components/Lists/ListReadingStory";
 import { IFilter, ITag } from "@/interfaces";
 import { MainLayout } from "@/layouts";
-import Link from "next/link";
 import { getListCategory } from "@/api/category";
-import { IoIosArrowForward } from "react-icons/io";
-import { getListTags } from "@/api/tags";
 import ListBookHot from "@/components/Lists/ListBookHot";
 import ListTag from "@/components/Lists/ListTag";
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
@@ -47,7 +43,7 @@ export default async function Home() {
                 <ListReadingStory />
               </div>
               <div className="border border-[#d9e1e4] p-3 mt-5 dark:bg-transparent dark:border-none rounded bg-[#ecf0f1]">
-                <ListCategoryHome categories={categories} />
+                <ListCategoryHome />
               </div>
               <ListTag />
             </div>

@@ -34,13 +34,13 @@ export default function PopUpCategoryHeader({ wrapperRefCategory, categories, se
                 <IoMdArrowDropdown size={16} />
             </div>
             <ul
-                className={`lg:py-2 ${!showCategories && "hidden"
-                    } lg:w-[450px] left-0 lg:absolute  top-[100%] lg:bg-[#2f566d] grid  grid-cols-3 z-20 `}
+                className={` lg:pb-2 ${!showCategories && "hidden"
+                    } lg:w-[450px]  left-0 lg:absolute  top-[100%] lg:bg-[#2f566d] grid  grid-cols-3 z-20 `}
             >
                 {categories?.map((category, index) => (
                     <li
                         key={index}
-                        className="p-2 lg:pl-4 pl-9 lg:max-w-[120px] hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]"
+                        className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]"
                     >
                         <Link href={`/the-loai/${convertToSlug(category?.name)}-${category?._id}.html`}>
                             {" "}

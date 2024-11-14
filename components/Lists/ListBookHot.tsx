@@ -9,6 +9,7 @@ import CardStoryHome from "../Cards/CardStoryHome";
 import iconFull from "@/public/images/full-label.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { handleUpdateView } from "@/api/updateView";
 export interface IListBookHotProps {
   booksHot: IBook[];
   categories: ICategory[];
@@ -64,7 +65,7 @@ export default function ListBookHot({
           }}
           id=""
         >
-          <option  value="">TẤT CẢ</option>
+          <option value="">TẤT CẢ</option>
           {categories?.map((category, index) => (
             <option key={index} value={category?._id}>
               {category?.name}
@@ -73,13 +74,14 @@ export default function ListBookHot({
         </select>
       </div>
       <div className="w-full md:grid-cols-5 flex  p-4 gap-5 lg:grid-cols-8">
-        <div className="w-1/4 hidden lg:block aspect-[3/4] relative hover:scale-105 transition-all duration-300 ">
+        <div onClick={() => handleUpdateView(listBook[0]?._id)} className="w-1/4 hidden lg:block aspect-[3/4] relative hover:scale-105 transition-all duration-300 ">
           <Link
             href={`/${convertToSlug(listBook[0]?.name)}-${convertToSlug(
               listBook[0]?._id
             )}.html`}
           >
             <Image
+
               className="w-full m-auto rounded h-full object-cover"
               width={300}
               height={400}
@@ -87,8 +89,8 @@ export default function ListBookHot({
               alt=""
             />
           </Link>
-          <h3 style={{textShadow:"1px 2px 2px #000"}}
-           className="bg-[#333]  px-2 truncate overflow-hidden font- rounded-b absolute w-full bottom-0 text-xs leading-3   md:text-sm font-medium  bg-opacity-70 left-0 text-white text-center py-[6px] text-wrap ">
+          <h3 style={{ textShadow: "1px 2px 2px #000" }}
+            className="bg-[#333]  px-2 truncate overflow-hidden font- rounded-b absolute w-full bottom-0 text-xs leading-3   md:text-sm font-medium  bg-opacity-70 left-0 text-white text-center py-[6px] text-wrap ">
             <Link
               href={`/${convertToSlug(listBook[0].name)}-${convertToSlug(
                 listBook[0]?._id

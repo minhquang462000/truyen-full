@@ -1,9 +1,10 @@
+import { handleUpdateView } from "@/api/updateView";
 import { IBook } from "@/interfaces";
 import { convertToSlug } from "@/utils/converToSlug";
 import Link from "next/link";
 import * as React from "react";
 
-export interface IListRatingStoryProps {}
+export interface IListRatingStoryProps { }
 
 export default function ListRatingStory({ books }: { books: IBook[] }) {
   return (
@@ -15,15 +16,14 @@ export default function ListRatingStory({ books }: { books: IBook[] }) {
         >
           <span
             className={`w-7 h-7 text-xs font-semibold 
-             ${
-               index === 0
-                 ? "bg-[#e74c3c] text-white border-[#e74c3c]"
-                 : index === 1
-                 ? "bg-[#5eb949] text-white border-[#5eb949]"
-                 : index === 2
-                 ? "bg-[#5cabb8] text-white  border-[#5cabb8]"
-                 : "text-[#4e4e4e] border  border-[#4e4e4e]"
-             } 
+             ${index === 0
+                ? "bg-[#e74c3c] text-white border-[#e74c3c]"
+                : index === 1
+                  ? "bg-[#5eb949] text-white border-[#5eb949]"
+                  : index === 2
+                    ? "bg-[#5cabb8] text-white  border-[#5cabb8]"
+                    : "text-[#4e4e4e] border  border-[#4e4e4e]"
+              } 
                rounded-full flex items-center justify-center`}
           >
             {index + 1}
@@ -33,15 +33,15 @@ export default function ListRatingStory({ books }: { books: IBook[] }) {
               <Link href="/truyen">{book?.name}</Link>
             </p>
             <span
+              onClick={() => { handleUpdateView(book?._id) }}
               className={`flex text-xs  lg:w-[220px] overflow-hidden truncate  items-center`}
             >
               {book?.categories?.map((category, index) => (
                 <Link
                   key={index}
                   className={`hover:underline mr-1 after:content-[","] `}
-                  href={`/the-loai/${convertToSlug(category?.name)}-${
-                    category?._id
-                  }.html`}
+                  href={`/the-loai/${convertToSlug(category?.name)}-${category?._id
+                    }.html`}
                 >
                   {category?.name}
                 </Link>

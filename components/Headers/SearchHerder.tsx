@@ -5,8 +5,9 @@ import { IBook } from "@/interfaces";
 import axios from "axios";
 import Link from "next/link";
 import { convertToSlug } from "@/utils/converToSlug";
+import { handleUpdateView } from "@/api/updateView";
 
-export interface ISearchHeaderProps {}
+export interface ISearchHeaderProps { }
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function SearchHeader(props: ISearchHeaderProps) {
   const [keyWord, setKeyWord] = useState("");
@@ -38,9 +39,8 @@ export default function SearchHeader(props: ISearchHeaderProps) {
         <FaSearch className="dark:text-[#92bb35] dark:border dark:border-[#92bb35] w-10 p-2 h-full" />
       </div>
       <div
-        className={`absolute ${
-          keyWord.length < 3 && "hidden"
-        } z-[99] lg:left-0 left-4 top-12 lg:top-9 `}
+        className={`absolute ${keyWord.length < 3 && "hidden"
+          } z-[99] lg:left-0 left-4 top-12 lg:top-9 `}
       >
         <div className="w-[270px]  dark:text-white text-sm dark:bg-[#1C242D] pt-2 shadow-md dark:border-[#333] dark:border-[1px] dark:shadow-none shadow-[#999] rounded bg-white ">
           {bookBySearch.length === 0 ? (
@@ -49,6 +49,7 @@ export default function SearchHeader(props: ISearchHeaderProps) {
             <ul className="mt-2  max-h-[300px] overflow-y-auto">
               {bookBySearch?.map((book, index) => (
                 <li
+                  onClick={() => { handleUpdateView(book._id) }}
                   key={index}
                   className="p-2 hover:bg-[#f5f5f5] dark:hover:bg-[#000]  dark:border-[#333] border-b"
                 >

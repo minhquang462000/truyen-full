@@ -1,4 +1,5 @@
 "use client";
+import { handleUpdateView } from "@/api/updateView";
 import { IBook, ICategory } from "@/interfaces";
 import { convertToSlug } from "@/utils/converToSlug";
 import { timeFormat } from "@/utils/getTimeDifference";
@@ -6,8 +7,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-
-export interface IListNewUpdateStoryProps {}
+export interface IListNewUpdateStoryProps { }
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function ListNewUpdateStory({
   bookNewUpdate,
@@ -70,7 +70,7 @@ export default function ListNewUpdateStory({
               <div className="lg:w-1/2 w-3/4 flex justify-between overflow-hidden truncate border-r p-2  gap-1 items-center border-[#b8b8b8] dark:border-none border-dashed ">
                 <span className="flex w-full items-center">
                   <IoIosArrowForward size={20} color="#8E8C8C" />
-                  <p className="hover:underline lg:text-base text-sm w-3/4 md:w-[250px] overflow-hidden truncate">
+                  <button onClick={() => { handleUpdateView(book._id) }} className="hover:underline text-start lg:text-base text-sm w-3/4 md:w-[250px] overflow-hidden truncate">
                     <Link
                       href={`/${convertToSlug(book.name)}-${convertToSlug(
                         book._id
@@ -78,7 +78,7 @@ export default function ListNewUpdateStory({
                     >
                       {book?.name}
                     </Link>
-                  </p>
+                  </button>
                 </span>
                 <ul className="md:flex gap-2 hidden   text-sm">
                   <li className="border rounded px-1 border-[#FD8383] text-[#FD8383]">
@@ -88,9 +88,8 @@ export default function ListNewUpdateStory({
                     New
                   </li>
                   <li
-                    className={`border rounded px-1 border-[#8eb3fd] text-[#8eb3fd] ${
-                      book?.status === 2 ? "" : "hidden"
-                    }`}
+                    className={`border rounded px-1 border-[#8eb3fd] text-[#8eb3fd] ${book?.status === 2 ? "" : "hidden"
+                      }`}
                   >
                     Full
                   </li>
@@ -102,9 +101,8 @@ export default function ListNewUpdateStory({
                     <Link
                       key={index}
                       className="hover:underline mr-1"
-                      href={`/the-loai/${convertToSlug(category.name)}-${
-                        category._id
-                      }.html`}
+                      href={`/the-loai/${convertToSlug(category.name)}-${category._id
+                        }.html`}
                     >
                       {category.name}
                       {index < book.categories.length - 1 && ","}

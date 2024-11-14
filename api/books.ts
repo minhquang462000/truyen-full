@@ -45,11 +45,12 @@ export async function getListBooks(query: IFilter) {
     return {
       data: res.data,
       total: res.headers["x-total-count"],
-    }
+    };
   } catch (e) {
     return null;
   }
 }
+
 export async function getListBooksNoTotal(query: IFilter) {
   const page = query.page ? query.page : 1;
   const limit = query.limit ? query.limit : 10;
@@ -90,16 +91,21 @@ export async function getListBooksNoTotal(query: IFilter) {
         Authorization: `Bearer ${token}`,
       },
     });
-    return res.data
+    return res.data;
   } catch (e) {
     return null;
   }
 }
-export const updateViews = async (id: string) => {
+
+export async function getListBooksByViews(key: string) {
+  const keys = key || "";
   try {
-    await axios.put(`${API_URL}/api/client/books-views/${id}`);
+    const res = await axios.get(
+      `${API_URL}/api/client/books-views?key=${keys}`
+    );
+    return res.data;
   } catch (e) {
-    console.log(e);
+    return null;
   }
 }
 export const getOneBook = async (id: string) => {
