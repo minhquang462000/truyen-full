@@ -20,7 +20,7 @@ export default function HiddenHeaderChapter(props: IHiddenHeaderChapterProps) {
       >
         <MainHeader />
         <MainHeaderDesktop />
-        <div className="w-full text-[#b1b1b1] bg-white dark:bg-[#2e3740] dark:shadow-none p-1  text-sm  shadow-md shadow-[#6d6d6d]">
+        <div className="w-full text-[#b1b1b1] bg-white dark:bg-[#2e3740] dark:shadow-transparent p-1  text-sm  shadow-md shadow-[#6d6d6d]">
           <ul className="w-full text-base  md:max-w-[750px]   m-auto lg:max-w-[1200px] flex  gap-2 items-center flex-wrap ">
             <li className="flex font-semibold items-center gap-1">
               <IoMdHome size={25} /> Truyện

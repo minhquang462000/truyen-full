@@ -9,8 +9,8 @@ export default function ListComment(props: IListCommentProps) {
   const [showBtnPost, setShowBtnPost] = useState(false);
   return (
     <div className="w-full">
-      <div className="w-full border-b dark:border-none border-[#ccc] flex items-end justify-between font-medium ">
-        <h2 className="text-lg md:text-xl pb-2 dark:text-white dark:border-none border-b border-[#333] pl-1 md:pl-0">
+      <div className="w-full border-b dark:border-transparent border-[#ccc] flex items-end justify-between font-medium ">
+        <h2 className="text-lg md:text-xl pb-2 dark:text-white dark:border-transparent border-b border-[#333] pl-1 md:pl-0">
           <Link href=""> {"Bình luận truyện".toUpperCase()}</Link>
         </h2>
       </div>

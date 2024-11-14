@@ -77,7 +77,7 @@ export default function CardComment(props: ICardCommentProps) {
         <IoIosArrowDown size={25} color="#999" />
       </button>
       {showMenu && (
-        <div className="bg-white dark:bg-[#000] dark:border-none  flex flex-col py-1 text-xs absolute right-2 top-6 z-10 font-medium   border border-[#999] md:text-sm shadow-md rounded">
+        <div className="bg-white dark:bg-[#000] dark:border-transparent  flex flex-col py-1 text-xs absolute right-2 top-6 z-10 font-medium   border border-[#999] md:text-sm shadow-md rounded">
           <button
             onClick={() => {
               setShowMore(false), setShowMenu(false);

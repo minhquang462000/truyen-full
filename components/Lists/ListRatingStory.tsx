@@ -12,7 +12,7 @@ export default function ListRatingStory({ books }: { books: IBook[] }) {
       {books?.map((book, index) => (
         <li
           key={index}
-          className="border-b  border-[#ccc] dark:border-none dark:bg-[#292929] p-2 flex gap-3 items-center border-dashed"
+          className="border-b  border-[#ccc] dark:border-transparent dark:bg-[#292929] p-2 flex gap-3 items-center border-dashed"
         >
           <span
             className={`w-7 h-7 text-xs font-semibold 

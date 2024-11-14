@@ -33,8 +33,8 @@ export default function ListNewUpdateStory({
   }, [categoryFilter]);
   return (
     <div className="w-full lg:text-base  font-medium">
-      <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h4 className="flex dark:text-white  text-lg md:text-xl dark:border-none  pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
+      <div className="w-full relative dark:border-transparent  border-b border-[#ccc] flex items-center font-medium justify-between">
+        <h4 className="flex dark:text-white  text-lg md:text-xl dark:border-transparent  pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
           <Link href="/the-loai/ten-the-loai"> TRUYỆN MỚI CẬP NHẬT</Link>
           <IoIosArrowForward size={20} />
         </h4>
@@ -65,9 +65,9 @@ export default function ListNewUpdateStory({
           return (
             <li
               key={index}
-              className="flex w-full text-sm border-b border-dashed dark:border-none dark:bg-[#292929] border-[#b8b8b8]"
+              className="flex w-full text-sm border-b border-dashed dark:border-transparent dark:bg-[#292929] border-[#b8b8b8]"
             >
-              <div className="lg:w-1/2 w-3/4 flex justify-between overflow-hidden truncate border-r p-2  gap-1 items-center border-[#b8b8b8] dark:border-none border-dashed ">
+              <div className="lg:w-1/2 w-3/4 flex justify-between overflow-hidden truncate border-r p-2  gap-1 items-center border-[#b8b8b8] dark:border-transparent border-dashed ">
                 <span className="flex w-full items-center">
                   <IoIosArrowForward size={20} color="#8E8C8C" />
                   <button onClick={() => { handleUpdateView(book._id) }} className="hover:underline text-start lg:text-base text-sm w-3/4 md:w-[250px] overflow-hidden truncate">
@@ -95,7 +95,7 @@ export default function ListNewUpdateStory({
                   </li>
                 </ul>
               </div>
-              <span className="hidden w-1/4 lg:w-1/5 line-clamp-1 md:block border-r border-dashed p-2 md:px-4 dark:border-none border-[#b8b8b8] overflow-hidden truncate">
+              <span className="hidden w-1/4 lg:w-1/5 line-clamp-1 md:block border-r border-dashed p-2 md:px-4 dark:border-transparent border-[#b8b8b8] overflow-hidden truncate">
                 {categoryFilter.id === "" ? (
                   book?.categories.map((category, index) => (
                     <Link
@@ -118,7 +118,7 @@ export default function ListNewUpdateStory({
                   </Link>
                 )}
               </span>
-              <p className="lg:w-max w-1/4 text-end p-2 border-r border-dashed hover:underline md:px-4 dark:border-none border-[#b8b8b8] dark:text-[#A9CF54] text-[#31708f]">
+              <p className="lg:w-max w-1/4 text-end p-2 border-r border-dashed hover:underline md:px-4 dark:border-transparent border-[#b8b8b8] dark:text-[#A9CF54] text-[#31708f]">
                 <Link href={"/ten-truyen/ten-chap"}>Chương 46</Link>
               </p>
               <p className="hidden lg:block p-2 md:px-4 w-max">

@@ -89,7 +89,7 @@ export default function MainHeader({ categories }: IMainHeaderProps) {
             </div>
           </div>
           <ul
-            className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-none  ${showMenu ? "max-h-[2000px] border-white py-2 " : "max-h-0 invisible overflow-hidden"
+            className={`border-t font-medium text-white transitionProperty-[max-height] duration-300 lg:border-transparent  ${showMenu ? "max-h-[2000px] border-white py-2 " : "max-h-0 invisible overflow-hidden"
               }`}
           >
             <PopUpListHeader

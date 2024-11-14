@@ -1,5 +1,6 @@
 import { getListBooksByViews, getListBooksNoTotal } from "@/api/books";
 import { getOneCategory } from "@/api/category";
+import { getOneTag } from "@/api/tags";
 import CardPageList from "@/components/Cards/CardPageList";
 import ChangeListByRat from "@/components/Functions/ChangeListByRat";
 import RootPagination from "@/components/Functions/RootPagination";
@@ -10,62 +11,63 @@ import { IBook, IFilter, PropParams } from "@/interfaces";
 import { MainLayout } from "@/layouts";
 import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
-function convertToTitleCase(str: string) {
-  return str
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
 export async function generateMetadata(
-  { params, searchParams }: PropParams,
+  { params }: PropParams,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const slug = (await params).slug?.toString() || "";
+  const slug = (await params).slug?.toString();
+  const id = slug?.split("-").pop()?.split(".")[0];
+  const tag = await getOneTag(id as string);
   return {
-    title: `Tìm kiếm theo: ${convertToTitleCase(slug)}`,
+    title: `Truyện ${tag?.name}`,
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_API_URL}`),
-    description: `Tìm kiếm theo ${slug?.toString()}`,
+    description: tag?.description,
   };
 }
 
 export default async function page({ params, searchParams }: PropParams) {
-  const slug = (await params).slug?.toString() || "";
+  const slug = (await params).slug?.toString();
+  const status = (await searchParams).status || "";
   const id = slug?.split("-").pop()?.split(".")[0];
+
+  const tag = await getOneTag(id as string);
   const limit = 24;
-  const bookByNameSearch = await getListBooksNoTotal({
-    search: slug,
+  const bookByCategory = await getListBooksNoTotal({
+    tag: id,
     page: 1,
     limit,
+    status: Number(status) || "",
   } as IFilter);
   const bookByView = await getListBooksByViews("weekly");
   return (
     <MainLayout>
       <main className="w-full  relative font-arial dark:text-[#b1b1b1] pb-5">
-        <TitlePage
-          title={`Tìm truyện với từ khóa: ${convertToTitleCase(slug)}`}
-        />
+        <TitlePage title={`Truyện ${tag?.name}`} />
         <section className="w-full md:max-w-[750px] relative  m-auto lg:max-w-[1200px]">
           <div className="w-full grid grid-cols-1 py-1 mt-4 gap-5 lg:grid-cols-4">
             <div className="lg:col-span-3">
               <div className="w-full border-b font-sans border-[#ccc] dark:border-transparent flex items-end justify-between font-medium ">
                 <h2 className="text-sm md:text-lg pb-2 border-b dark:border-transparent  dark:text-white border-[#333] pl-1 md:pl-0">
-                  {`Tìm truyện với từ khóa: ${convertToTitleCase(
-                    slug
-                  )}`.toUpperCase()}
+                  {`TRUYỆN ${tag?.name.toUpperCase()}`}
                 </h2>
-                <p className="text-[10px] dark:text-[#b1b1b1] text-sm text-black p-2">
-                  {" "}
-                  {`${bookByNameSearch.length} KẾT QUẢ`}
-                </p>
+                <Link href={`?status=2`}>
+                  <p className="text-[10px] bg-[#444] text-sm text-white p-2">
+                    {" "}
+                    {`${tag?.name.toUpperCase()} (FULL)`}
+                  </p>
+                </Link>
               </div>
               <div className="w-full mt-3 ">
-                {bookByNameSearch?.map((item: IBook, index: number) => (
+                {bookByCategory?.map((item: IBook, index: number) => (
                   <CardPageList index={index} key={index} book={item} />
                 ))}
               </div>
-              {bookByNameSearch?.length > limit && <RootPagination />}
+              {bookByCategory?.length > limit && <RootPagination />}
             </div>
             <div className="hidden  lg:block">
+              <p className="bg-[#ecf0f1] dark:border-transparent text-sm dark:bg-[#2b2b2b] border-[#D9E1E4] border p-3 ">
+                {tag?.description}
+              </p>
               <div className="bg-[#ecf0f1] dark:bg-transparent dark:border-[#2b2b2b] border-[#D9E1E4] border  text-base mt-8 pt-5 p-2 ">
                 <ListCategoryHome />
               </div>

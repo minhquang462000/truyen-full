@@ -28,8 +28,8 @@ export default function ChangeListByRat({ books }: { books: IBook[] }) {
   }, [bookData]);
   return (
     <div className="w-full text-sm ">
-      <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h2 className="flex  border-b border-[#333] dark:border-none dark:text-white pb-1 text-lg pl-1 md:pl-0  items-center">
+      <div className="w-full relative dark:border-transparent  border-b border-[#ccc] flex items-center font-medium justify-between">
+        <h2 className="flex  border-b border-[#333] dark:border-transparent dark:text-white pb-1 text-lg pl-1 md:pl-0  items-center">
           {" truyện đang hot".toUpperCase()}
         </h2>{" "}
       </div>

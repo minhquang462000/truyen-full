@@ -48,8 +48,8 @@ export default async function page({ params, searchParams }: PropParams) {
       <main className="w-full  text-[#4e4e4e] font-arial  dark:bg-[#222222] dark:text-[#b1b1b1] pb-5   m-auto ">
        <TitlePage title={bookData?.name}/>
         <div className="w-full md:max-w-[750px] lg:max-w-[1200px] m-auto">
-          <div className="w-full dark:border-none border-b mt-5 border-[#ccc] flex items-end justify-between font-medium ">
-            <h2 className=" text-xl pb-2 border-b dark:text-white dark:border-none border-[#333] pl-1 md:pl-0">
+          <div className="w-full dark:border-transparent border-b mt-5 border-[#ccc] flex items-end justify-between font-medium ">
+            <h2 className=" text-xl pb-2 border-b dark:text-white dark:border-transparent border-[#333] pl-1 md:pl-0">
               <Link href=""> {"Thông tin truyện".toUpperCase()}</Link>
             </h2>
           </div>

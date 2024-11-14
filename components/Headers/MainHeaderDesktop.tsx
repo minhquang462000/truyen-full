@@ -78,7 +78,7 @@ export default function MainHeaderDesktop({ categories }: IMainHeaderProps) {
               />
             </Link>
             <div
-              className={`border-t flex h-full  items-center  text-white transitionProperty-[max-height] duration-300 lg:border-none border-white `}
+              className={`border-t flex h-full  items-center  text-white transitionProperty-[max-height] duration-300 lg:border-transparent border-white `}
             >
               <PopUpListHeader
                 wrapperRefList={wrapperRefList}

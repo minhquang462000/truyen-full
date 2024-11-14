@@ -19,7 +19,7 @@ export default async function Home() {
   } as IFilter);
   return (
     <MainLayout>
-      <main className="w-full dark:bg-[#222222] dark:text-[#b1b1b1] pb-5">
+      <main className="w-full   dark:text-[#b1b1b1] pb-5">
         <div className="w-full dark:text-[#b1b1b1] bg-white dark:bg-[#2E3740]  shadow-md ">
           <p className="w-full p-1 mb-5 md:max-w-[750px] text-sm  m-auto lg:max-w-[1200px]  font-medium  overflow-hidden truncate">
             Đọc truyện online, đọc truyện chữ, truyện full, truyện hay. Tổng hợp
@@ -39,10 +39,10 @@ export default async function Home() {
               />
             </div>
             <div className="col-span-1 hidden lg:block">
-              <div className="border border-[#d9e1e4] p-3 dark:bg-transparent dark:border-none rounded bg-[#ecf0f1]">
+              <div className="border border-[#d9e1e4] p-3 dark:bg-transparent dark:border-transparent rounded bg-[#ecf0f1]">
                 <ListReadingStory />
               </div>
-              <div className="border border-[#d9e1e4] p-3 mt-5 dark:bg-transparent dark:border-none rounded bg-[#ecf0f1]">
+              <div className="border border-[#d9e1e4] p-3 mt-5 dark:bg-transparent dark:border-transparent rounded bg-[#ecf0f1]">
                 <ListCategoryHome />
               </div>
               <ListTag />

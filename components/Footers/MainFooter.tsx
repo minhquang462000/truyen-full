@@ -7,7 +7,7 @@ export interface IMainFooterProps {}
 
 export default function MainFooter(props: IMainFooterProps) {
   return (
-    <footer className="w-full border-t dark:border-none text-xs p-3 dark:bg-[#121212] bg-[#f8f8f8] shadow  text-[#4E4E4E]">
+    <footer className="w-full border-t dark:border-transparent text-xs p-3 z-40 dark:bg-[#121212] bg-[#f8f8f8] shadow  text-[#4E4E4E]">
       <div className="w-full  flex flex-col relative gap-5 md:max-w-[750px] m-auto lg:max-w-[1200px] ">
         <h2 className="text-center w-full text-xl font-bold">
           Liên hệ: <Link href="">contact@truyenfull.vn</Link>

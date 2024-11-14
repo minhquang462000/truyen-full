@@ -32,7 +32,7 @@ export default function page(props: IpageProps) {
             </Link>
           </h3>
           <hr
-            className="w-[59px] h-[23px] m-auto  border-none  bg-no-repeat"
+            className="w-[59px] h-[23px] m-auto  border-transparent  bg-no-repeat"
             style={{
               backgroundImage: `url(${logo.src})`,
               backgroundPosition: "-200px -27px",
@@ -40,7 +40,7 @@ export default function page(props: IpageProps) {
           />
           <ButtonChangeChapter />
           <hr
-            className="w-[277px] h-[35px] my-4 m-auto border-none  bg-no-repeat"
+            className="w-[277px] h-[35px] my-4 m-auto border-transparent  bg-no-repeat"
             style={{
               backgroundImage: `url(${logo.src})`,
               backgroundPosition: "0 -55px",
@@ -54,7 +54,7 @@ export default function page(props: IpageProps) {
             <ListInChapter title="truyện tranh đang hot" />
           </div>
           <hr
-            className="w-[277px] h-[35px] my-4 m-auto border-none  bg-no-repeat"
+            className="w-[277px] h-[35px] my-4 m-auto border-transparent  bg-no-repeat"
             style={{
               backgroundImage: `url(${logo.src})`,
               backgroundPosition: "0 -55px",

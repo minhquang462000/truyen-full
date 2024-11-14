@@ -9,9 +9,9 @@ export interface IListCategoryHomeProps {}
 export default async function ListCategoryHome() {
   const categories = await getListCategory({} as IFilter);
   return (
-    <div className="w-full mt-5">
-      <div className="w-full relative dark:border-none  border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h2 className="text-sm md:text-xl dark:text-white pb-2  dark:pb-0 border-b dark:border-none border-[#333] pl-1 md:pl-0">
+    <div className="w-full ">
+      <div className="w-full relative dark:border-transparent  border-b border-[#ccc] flex items-center font-medium justify-between">
+        <h2 className="text-sm md:text-xl dark:text-white pb-2  dark:pb-0 border-b dark:border-transparent border-[#333] pl-1 md:pl-0">
           {"Thể loại truyện".toUpperCase()}
         </h2>
       </div>

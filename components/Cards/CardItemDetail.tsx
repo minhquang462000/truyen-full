@@ -7,7 +7,7 @@ import ListChapterNewest from "../Lists/ListChapterNewest";
 import { IBook } from "@/interfaces";
 import Image from "next/image";
 import { convertToSlug } from "@/utils/converToSlug";
-const DOMAIN = process.env.NEXT_PUBLIC_API_URL
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function CardItemDetail({ bookData }: { bookData: IBook }) {
   const [showMore, setShowMore] = useState(false);
   return (
@@ -31,7 +31,9 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
           <li className="flex items-center flex-wrap w-full ">
             <strong className="w-max  mr-2">Tác giả:</strong>
             <Link
-              href={`/tac-gia/${convertToSlug(bookData?.authors[0].name)}-${bookData?.authors[0]._id}`}
+              href={`/tac-gia/${convertToSlug(bookData?.authors[0].name)}-${
+                bookData?.authors[0]._id
+              }`}
               className="hover:underline  overflow-hidden"
             >
               {bookData?.authors[0].name}
@@ -42,7 +44,9 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
             {bookData?.categories.map((category, index) => (
               <Link
                 key={index}
-                href={`/the-loai/${convertToSlug(category?.name)}-${category?._id}.html`}
+                href={`/the-loai/${convertToSlug(category?.name)}-${
+                  category?._id
+                }.html`}
                 className='hover:underline after:content-[","]'
               >
                 {category?.name}
@@ -52,41 +56,49 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
           <li className="flex items-center w-full gap-2">
             <strong className="w-max">Trạng thái :</strong>
             <span className=" text-[#428bca] dark:text-[#3c763d]">
-              {bookData?.status == 0 ? "Sắp ra mắt" : bookData?.status == 1 ? "Đang ra" : "Hoàn thành"}
+              {bookData?.status == 0
+                ? "Sắp ra mắt"
+                : bookData?.status == 1
+                ? "Đang ra"
+                : "Hoàn thành"}
             </span>
           </li>
         </ul>
       </div>
       <div className="md:col-span-2 md:border-[#ccc] md:border-t pt-2 font-medium flex text-sm flex-col gap-1">
-        <div className="flex items-center gap-1 w-max text-[#ccc] m-auto text-[20px]">
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-          <FaStar className="hover:text-[#efa500]" />
-        </div>
-        <span className="italic mt-2 flex gap-1 items-center w-max m-auto">
-          <p>Đánh giá:</p>
-          <strong>6.3</strong>
-          <p>/10 từ</p>
-          <strong>3 lượt</strong>
-        </span>
+        <ul>
+          <li className="flex items-center gap-1 w-max text-[#ccc] m-auto text-[20px]">
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+            <FaStar className="hover:text-[#efa500]" />
+          </li>
+          <li className="italic mt-2 flex gap-1 items-center w-max m-auto">
+            <p>Đánh giá:</p>
+            <strong>6.3</strong>
+            <p>/10 từ</p>
+            <strong>3 lượt</strong>
+          </li>
+        </ul>
         <p
-          className={`whitespace-pre-wrap   mt-2  overflow-hidden ${showMore ? "" : "line-clamp-[10]"
-            }`}
+          className={`whitespace-pre-wrap   mt-2  overflow-hidden ${
+            showMore ? "" : "line-clamp-[10]"
+          }`}
         >
           {bookData?.description.replace(/([.,!?])/g, "$1")}
         </p>
         <div className="w-full flex pr-4 md:p-0 justify-end">
           <button
             onClick={() => setShowMore(!showMore)}
-            className={`right-4 bottom-0 hover:shadow p-1 border rounded  flex items-center w-max mr-0 gap-1 py-[2px] ${showMore && "hidden"
-              }`}
+            className={`right-4 bottom-0 hover:shadow p-1 border rounded  flex items-center w-max mr-0 gap-1 py-[2px] ${
+              showMore && "hidden"
+            }`}
           >
             Xem thêm <MdKeyboardDoubleArrowRight />
           </button>

@@ -7,10 +7,10 @@ import { IoIosArrowForward } from "react-icons/io";
 export default async function ListTag() {
   const listTags = await getListTags();
   return (
-    <div className="mb-4">
-      <div className="w-full relative dark:border-none mt-4  border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h4 className="flex dark:text-white  dark:border-none  pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
-          <Link href="/the-loai/ten-the-loai"> TAGS</Link>
+    <div className={`mb-4 ${listTags?.length === 0 ? "hidden" : ""}`}>
+      <div className="w-full relative dark:border-transparent mt-4  border-b border-[#ccc] flex items-center font-medium justify-between">
+        <h4 className="flex dark:text-white  dark:border-transparent  pl-1 border-b border-[#333] py-2 md:pl-0  items-center">
+          <Link href=""> TAGS</Link>
           <IoIosArrowForward size={20} />
         </h4>
       </div>
@@ -20,7 +20,7 @@ export default async function ListTag() {
             className="border rounded-md text-sm border-gray-300 hover:border-gray-400 px-2"
             key={index}
           >
-            <Link href={`/tag/${convertToSlug(tag?.name)}-${tag?._id}}.html`}>
+            <Link href={`/tags/${convertToSlug(tag?.name)}-${tag?._id}.html`}>
               {tag?.name}
             </Link>
           </li>

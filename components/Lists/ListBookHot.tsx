@@ -47,8 +47,8 @@ export default function ListBookHot({
   }, []);
   return (
     <div>
-      <div className="w-full dark:text-white dark:border-none  relative border-b border-[#ccc] flex items-center font-medium justify-between">
-        <h3 className="flex gap-1 p-1 border-b border-[#333] dark:border-none md:pl-0 text-lg md:text-xl items-center">
+      <div className="w-full dark:text-white dark:border-transparent  relative border-b border-[#ccc] flex items-center font-medium justify-between">
+        <h3 className="flex gap-1 p-1 translate-y-1 border-b border-[#333] dark:border-transparent md:pl-0 text-lg md:text-xl items-center">
           <Link href="">{"truyện hot".toUpperCase()}</Link>
           <ImFire />
         </h3>
@@ -74,14 +74,16 @@ export default function ListBookHot({
         </select>
       </div>
       <div className="w-full md:grid-cols-5 flex  p-4 gap-5 lg:grid-cols-8">
-        <div onClick={() => handleUpdateView(listBook[0]?._id)} className="w-1/4 hidden lg:block aspect-[3/4] relative hover:scale-105 transition-all duration-300 ">
+        <div
+          onClick={() => handleUpdateView(listBook[0]?._id)}
+          className="w-1/4 hidden lg:block aspect-[3/4] relative hover:scale-105 transition-all duration-300 "
+        >
           <Link
             href={`/${convertToSlug(listBook[0]?.name)}-${convertToSlug(
               listBook[0]?._id
             )}.html`}
           >
             <Image
-
               className="w-full m-auto rounded h-full object-cover"
               width={300}
               height={400}
@@ -89,8 +91,10 @@ export default function ListBookHot({
               alt=""
             />
           </Link>
-          <h3 style={{ textShadow: "1px 2px 2px #000" }}
-            className="bg-[#333]  px-2 truncate overflow-hidden font- rounded-b absolute w-full bottom-0 text-xs leading-3   md:text-sm font-medium  bg-opacity-70 left-0 text-white text-center py-[6px] text-wrap ">
+          <h3
+            style={{ textShadow: "1px 2px 2px #000" }}
+            className="bg-[#333]  px-2 truncate overflow-hidden font- rounded-b absolute w-full bottom-0 text-xs leading-3   md:text-sm font-medium  bg-opacity-70 left-0 text-white text-center py-[6px] text-wrap "
+          >
             <Link
               href={`/${convertToSlug(listBook[0].name)}-${convertToSlug(
                 listBook[0]?._id
