@@ -24,7 +24,7 @@ export default function ListChapter(props: IListChapterProps) {
           </li>
         </Link>
       </ul>
-      <RootPagination />
+      <RootPagination limit={10} page={1} total={11}/>
     </div>
   );
 }

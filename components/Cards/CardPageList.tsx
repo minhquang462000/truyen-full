@@ -100,7 +100,7 @@ export default function CardPageList({
         </span>
         <span className="flex gap-2 items-center text-sm">
           <IoListSharp />
-          {book?.chapters || 0} Chương
+          {book?.totalChap} Chương
         </span>
       </div>
     </div>

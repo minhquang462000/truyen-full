@@ -1,5 +1,5 @@
 import { getOneAuthor } from "@/api/author";
-import { getListBooksByViews, getListBooksNoTotal } from "@/api/books";
+import { getListBooks, getListBooksByViews, getListBooksNoTotal } from "@/api/books";
 import CardPageList from "@/components/Cards/CardPageList";
 import ChangeListByRat from "@/components/Functions/ChangeListByRat";
 import RootPagination from "@/components/Functions/RootPagination";
@@ -29,16 +29,16 @@ export default async function page({ params, searchParams }: PropParams) {
   const slug = (await params).slug?.toString();
   const status = (await searchParams).status || "";
   const id = slug?.split("-").pop()?.split(".")[0];
-
+  const page = Number((await searchParams).page) || 1;
   const author = await getOneAuthor(id as string);
   const limit = 24;
-  const bookByCategory = await getListBooksNoTotal({
+  const { data: bookByAuthor, total } = await getListBooks({
     author: id,
     page: 1,
     limit,
     status: Number(status) || "",
-  } as IFilter);
-  const bookByView = await getListBooksByViews("weekly");
+  } as IFilter) || { data: [], total: 0 };
+  const bookByView = await getListBooksByViews({ key: "weekly" } as IFilter);
   return (
     <MainLayout>
       <main className="w-full  relative font-arial  dark:text-[#b1b1b1] pb-5">
@@ -58,7 +58,7 @@ export default async function page({ params, searchParams }: PropParams) {
                 </Link>
               </div>
               <div className="w-full mt-3 ">
-                {bookByCategory?.map((item: IBook, index: number) => (
+                {bookByAuthor?.map((item: IBook, index: number) => (
                   <CardPageList
                     category={true}
                     index={index}
@@ -67,7 +67,7 @@ export default async function page({ params, searchParams }: PropParams) {
                   />
                 ))}
               </div>
-              {bookByCategory?.length > limit && <RootPagination />}
+              <RootPagination page={page} total={total} limit={limit} />
             </div>
             <div className="hidden  lg:block">
               <p className="bg-[#ecf0f1] dark:border-transparent text-sm dark:bg-[#2b2b2b] border-[#D9E1E4] border p-3 ">
@@ -77,7 +77,7 @@ export default async function page({ params, searchParams }: PropParams) {
                 <ListCategoryHome />
               </div>
               <div className="text-xs mt-8  ">
-                <ChangeListByRat books={bookByView} />
+                <ChangeListByRat books={bookByView?.data} />
                 <ListTag />
               </div>
             </div>

@@ -1,3 +1,4 @@
+'use client';
 import { handleUpdateView } from "@/api/updateView";
 import { IBook } from "@/interfaces";
 import { convertToSlug } from "@/utils/converToSlug";
@@ -29,11 +30,11 @@ export default function ListRatingStory({ books }: { books: IBook[] }) {
             {index + 1}
           </span>
           <div className="w-[100%-32px]">
-            <p className=" overflow-hidden text-[#083767] lg:w-[220px] font-semibold dark:text-[#92bb35]  hover:underline truncate">
-              <Link href="/truyen">{book?.name}</Link>
-            </p>
+            <button onClick={() => { handleUpdateView(book?._id) }}
+              className="text-start overflow-hidden text-[#083767] lg:w-[220px] font-semibold dark:text-[#92bb35]  hover:underline truncate">
+              <Link href={`/${convertToSlug(book?.name)}-${convertToSlug(book?._id)}.html`}>{book?.name}</Link>
+            </button>
             <span
-              onClick={() => { handleUpdateView(book?._id) }}
               className={`flex text-xs  lg:w-[220px] overflow-hidden truncate  items-center`}
             >
               {book?.categories?.map((category, index) => (

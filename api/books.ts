@@ -1,4 +1,4 @@
-import { IFilter } from "@/interfaces";
+import { IBook, IFilter } from "@/interfaces";
 import axios from "axios";
 import { cookies } from "next/headers";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -11,6 +11,7 @@ export async function getListBooks(query: IFilter) {
   const author = query.author ? query.author : "";
   const views = query.views ? query.views : 0;
   const contributor = query.contributor ? query.contributor : "";
+  const chapter = query.chapter ? query.chapter : "";
   ///---> Params
   const params: any = {
     page,
@@ -22,6 +23,7 @@ export async function getListBooks(query: IFilter) {
     views,
     status: query.status,
     contributor,
+    chapter,
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
@@ -42,10 +44,9 @@ export async function getListBooks(query: IFilter) {
         Authorization: `Bearer ${token}`,
       },
     });
-    return {
-      data: res.data,
-      total: res.headers["x-total-count"],
-    };
+    const data = res.data ;
+    const total = res.headers["x-total-count"] ;
+    return { data, total };
   } catch (e) {
     return null;
   }
@@ -97,13 +98,18 @@ export async function getListBooksNoTotal(query: IFilter) {
   }
 }
 
-export async function getListBooksByViews(key: string) {
-  const keys = key || "";
+export async function getListBooksByViews(query: IFilter) {
+  const keys = query.key || "";
+  const page = query.page ? query.page : 1;
+  const limit = query.limit ? query.limit : 10;
   try {
     const res = await axios.get(
-      `${API_URL}/api/client/books-views?key=${keys}`
+      `${API_URL}/api/client/books-views?key=${keys}${page}&limit=${limit}`
     );
-    return res.data;
+    return {
+      data: res.data,
+      total: res.headers["x-total-count"],
+    };
   } catch (e) {
     return null;
   }

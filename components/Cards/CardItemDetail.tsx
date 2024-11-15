@@ -13,9 +13,9 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
   return (
     <div className=" p-4 grid md:grid-cols-3 md:gap-y-1 md:gap-x-5  ">
       <h3 className="text-xl text-center md:col-span-3 md:flex md:justify-end w-full md:text-2xl font-bold">
-        <Link className="w-full md:w-2/3" href="">
+        <p className="w-full md:w-2/3">
           {bookData?.name}
-        </Link>
+        </p>
       </h3>
       <div className="md:col-span-1 pt-2 w-full  lg:-translate-y-14  md:text-sm ">
         <div className="w-[220px] aspect-[2/3] image-detail relative lg:shadow-lg lg:shadow-[#666] lg:w-[85%]   my-2 m-auto ">
@@ -31,9 +31,8 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
           <li className="flex items-center flex-wrap w-full ">
             <strong className="w-max  mr-2">Tác giả:</strong>
             <Link
-              href={`/tac-gia/${convertToSlug(bookData?.authors[0].name)}-${
-                bookData?.authors[0]._id
-              }`}
+              href={`/tac-gia/${convertToSlug(bookData?.authors[0].name)}-${bookData?.authors[0]._id
+                }`}
               className="hover:underline  overflow-hidden"
             >
               {bookData?.authors[0].name}
@@ -44,9 +43,8 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
             {bookData?.categories.map((category, index) => (
               <Link
                 key={index}
-                href={`/the-loai/${convertToSlug(category?.name)}-${
-                  category?._id
-                }.html`}
+                href={`/the-loai/${convertToSlug(category?.name)}-${category?._id
+                  }.html`}
                 className='hover:underline after:content-[","]'
               >
                 {category?.name}
@@ -59,8 +57,8 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
               {bookData?.status == 0
                 ? "Sắp ra mắt"
                 : bookData?.status == 1
-                ? "Đang ra"
-                : "Hoàn thành"}
+                  ? "Đang ra"
+                  : "Hoàn thành"}
             </span>
           </li>
         </ul>
@@ -87,18 +85,16 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
           </li>
         </ul>
         <p
-          className={`whitespace-pre-wrap   mt-2  overflow-hidden ${
-            showMore ? "" : "line-clamp-[10]"
-          }`}
+          className={`whitespace-pre-wrap   mt-2  overflow-hidden ${showMore ? "" : "line-clamp-[10]"
+            }`}
         >
           {bookData?.description.replace(/([.,!?])/g, "$1")}
         </p>
         <div className="w-full flex pr-4 md:p-0 justify-end">
           <button
             onClick={() => setShowMore(!showMore)}
-            className={`right-4 bottom-0 hover:shadow p-1 border rounded  flex items-center w-max mr-0 gap-1 py-[2px] ${
-              showMore && "hidden"
-            }`}
+            className={`right-4 bottom-0 hover:shadow p-1 border rounded  flex items-center w-max mr-0 gap-1 py-[2px] ${showMore && "hidden"
+              }`}
           >
             Xem thêm <MdKeyboardDoubleArrowRight />
           </button>

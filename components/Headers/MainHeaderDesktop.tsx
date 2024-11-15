@@ -104,7 +104,9 @@ export default function MainHeaderDesktop({ categories }: IMainHeaderProps) {
               />
               <li className="flex gap-[2px] px-2 items-center ">
                 <FaBook size={16} />
-                <Link href={""}>Truyện Tranh</Link>
+                <Link href={""}>
+                  <p className="line-clamp-1">Truyện Tranh</p>
+                </Link>
               </li>
 
             </div>

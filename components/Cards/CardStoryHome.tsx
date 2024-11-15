@@ -20,13 +20,7 @@ export default function CardStoryHome({ book }: { book: IBook }) {
       </Link>
       <h3 style={{ textShadow: "1px 2px 2px #000" }}
         className="bg-[#333]  py-[6px] px-1 truncate overflow-hidden  rounded-b absolute w-full bottom-0 md:text-xs leading-3  text-[10px]  font-medium  bg-opacity-70 left-0 text-white text-center   ">
-        <Link
-          href={`/${convertToSlug(book?.name)}-${convertToSlug(
-            book?._id
-          )}.html`}
-        >
-          {book?.name}
-        </Link>
+         {book?.name}
       </h3>
       {book.status === 2 && (
         <Image

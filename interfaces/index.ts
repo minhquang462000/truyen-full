@@ -16,6 +16,8 @@ export interface IFilter {
   author: string;
   status: any;
   contributor: string;
+  key:string
+  chapter:string
 }
 export interface ICategory {
   _id: string;
@@ -58,7 +60,7 @@ export interface IUser {
 }
 export interface IBook {
   _id: string;
-  chapters: number;
+  totalChap: number;
   name: string;
   status: number;
   created_at: string;

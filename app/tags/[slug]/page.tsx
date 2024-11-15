@@ -1,4 +1,4 @@
-import { getListBooksByViews, getListBooksNoTotal } from "@/api/books";
+import { getListBooks, getListBooksByViews, getListBooksNoTotal } from "@/api/books";
 import { getOneCategory } from "@/api/category";
 import { getOneTag } from "@/api/tags";
 import CardPageList from "@/components/Cards/CardPageList";
@@ -29,16 +29,16 @@ export default async function page({ params, searchParams }: PropParams) {
   const slug = (await params).slug?.toString();
   const status = (await searchParams).status || "";
   const id = slug?.split("-").pop()?.split(".")[0];
-
+  const page = Number((await searchParams).page) || 1;
   const tag = await getOneTag(id as string);
   const limit = 24;
-  const bookByCategory = await getListBooksNoTotal({
+  const { data: bookByTag, total } = await getListBooks({
     tag: id,
     page: 1,
     limit,
     status: Number(status) || "",
-  } as IFilter);
-  const bookByView = await getListBooksByViews("weekly");
+  } as IFilter) || { data: [], total: 0 };
+  const bookByView = await getListBooksByViews({ key: "weekly" } as IFilter);
   return (
     <MainLayout>
       <main className="w-full  relative font-arial dark:text-[#b1b1b1] pb-5">
@@ -58,11 +58,11 @@ export default async function page({ params, searchParams }: PropParams) {
                 </Link>
               </div>
               <div className="w-full mt-3 ">
-                {bookByCategory?.map((item: IBook, index: number) => (
+                {bookByTag?.map((item: IBook, index: number) => (
                   <CardPageList index={index} key={index} book={item} />
                 ))}
               </div>
-              {bookByCategory?.length > limit && <RootPagination />}
+              <RootPagination page={page} limit={limit} total={total} />
             </div>
             <div className="hidden  lg:block">
               <p className="bg-[#ecf0f1] dark:border-transparent text-sm dark:bg-[#2b2b2b] border-[#D9E1E4] border p-3 ">
@@ -72,7 +72,7 @@ export default async function page({ params, searchParams }: PropParams) {
                 <ListCategoryHome />
               </div>
               <div className="text-xs mt-8  ">
-                <ChangeListByRat books={bookByView} />
+                <ChangeListByRat books={bookByView?.data} />
                 <ListTag />
               </div>
             </div>

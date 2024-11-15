@@ -28,25 +28,34 @@ export default function PoUpClassifyCharHeader({ wrapperRefClassifyChart, setSho
                     }`}
             >
                 <MdViewList size={22} />
-                Phân loại theo Chương
+                <p className="line-clamp-1"> Phân loại theo Chương</p>
                 <IoMdArrowDropdown size={16} />
             </div>
             <ul
                 className={`lg:pb-2 ${!showClassifyChart && "hidden"
                     } lg:w-[220px] left-0 lg:absolute  top-[100%] lg:bg-[#2f566d] z-20 `}
             >
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href={""}>Dưới 100 chương</Link>
-                </li>
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href={""}>100-500 chương</Link>
-                </li>
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href={""}>500-1000 chương</Link>
-                </li>
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href={""}>Trên 1000 chương</Link>
-                </li>
+                <Link href={"/danh-sach/chapter:100"}>
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        Dưới 100 chương
+                    </li>
+                </Link>
+                <Link href={"/danh-sach/chapter:100-500"}>
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        100-500 chương
+                    </li>
+                </Link>
+                <Link href={"/danh-sach/chapter:500-1000"}>
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        500-1000 chương
+                    </li>
+                </Link>
+                <Link href={"/danh-sach/chapter:1000"}>
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        Trên 1000 chương
+                    </li>
+                </Link>
+
             </ul>
         </div>
     );

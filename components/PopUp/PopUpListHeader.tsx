@@ -27,22 +27,29 @@ export default function PopUpListHeader({ wrapperRefList, setShowList, showList,
                     }`}
             >
                 <MdViewList size={22} />
-                Danh sách
+                <p className="line-clamp-1">Danh sách</p>
                 <IoMdArrowDropdown size={16} />
             </div>
             <ul
                 className={`lg:pb-2 ${!showList && "hidden"
                     } lg:w-[220px] left-0 lg:absolute  top-[100%] lg:bg-[#2f566d]  z-20 `}
             >
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href="">Truyện mới cập nhật</Link>
-                </li>
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href="">Truyện Full</Link>
-                </li>
-                <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
-                    <Link href="">Truyện Hot</Link>
-                </li>
+                <Link href="/danh-sach/truyen-moi-cap-nhat">
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        Truyện mới cập nhật
+                    </li>
+                </Link>
+                <Link href="/danh-sach/truyen-full">
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        Truyện Full
+                    </li>
+                </Link>
+                <Link href="/danh-sach/truyen-hot">
+                    <li className="p-2 lg:pl-4 pl-9  hover:bg-[#2f566d] text-start lg:hover:bg-[#14425d]">
+                        Truyện Hot
+                    </li>
+                </Link>
+
             </ul>
         </div>
     );
