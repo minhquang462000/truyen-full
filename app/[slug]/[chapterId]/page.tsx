@@ -1,5 +1,5 @@
 import MainFooter from "@/components/Footers/MainFooter";
-import HiddenHeaderChapter from "@/components/Functions/HiddenHeaderChapter";
+// import HiddenHeaderChapter from "@/components/Functions/HiddenHeaderChapter";
 import Link from "next/link";
 import logo from "@/public/images/spriteimg_new_white_op.png";
 
@@ -16,7 +16,7 @@ export interface IpageProps {}
 export default function page(props: IpageProps) {
   return (
     <main className="w-full text-[#4e4e4e]  relative   bg-gradient-to-b from-[#d4d4d4] to-[#f4f4f4] ">
-      <HiddenHeaderChapter />
+      {/* <HiddenHeaderChapter /> */}
 
       <div className="dark:bg-[#222222]  dark:text-[#b1b1b1] ">
         <div className="text-center py-5 flex flex-col gap-2 m-auto md:max-w-[750px] lg:max-w-[1200px]">
