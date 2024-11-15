@@ -1,5 +1,5 @@
 import MainFooter from "@/components/Footers/MainFooter";
-// import HiddenHeaderChapter from "@/components/Functions/HiddenHeaderChapter";
+import HiddenHeaderChapter from "@/components/Functions/HiddenHeaderChapter";
 import Link from "next/link";
 import logo from "@/public/images/spriteimg_new_white_op.png";
 
@@ -10,14 +10,16 @@ import { SlActionRedo } from "react-icons/sl";
 import SlideInChapterPage from "@/components/Slides/SlideInChapterPage";
 import ListInChapter from "@/components/Lists/ListInChapter";
 import CommentChapter from "@/components/Cards/CommentChapter";
+import { getListCategory } from "@/api/category";
+import { IFilter } from "@/interfaces";
 
-export interface IpageProps {}
+export interface IpageProps { }
 
-export default function page(props: IpageProps) {
+export default async function page(props: IpageProps) {
+  const categories = await getListCategory({} as IFilter);
   return (
     <main className="w-full text-[#4e4e4e]  relative   bg-gradient-to-b from-[#d4d4d4] to-[#f4f4f4] ">
-      {/* <HiddenHeaderChapter /> */}
-
+      <HiddenHeaderChapter categories={categories} />
       <div className="dark:bg-[#222222]  dark:text-[#b1b1b1] ">
         <div className="text-center py-5 flex flex-col gap-2 m-auto md:max-w-[750px] lg:max-w-[1200px]">
           <h2 className="text-[#690] text-xl font-semibold">
