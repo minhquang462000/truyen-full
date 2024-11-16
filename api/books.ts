@@ -12,6 +12,7 @@ export async function getListBooks(query: IFilter) {
   const views = query.views ? query.views : 0;
   const contributor = query.contributor ? query.contributor : "";
   const chapter = query.chapter ? query.chapter : "";
+  const keySort = query.keySort ? query.keySort : "";
   ///---> Params
   const params: any = {
     page,
@@ -21,9 +22,10 @@ export async function getListBooks(query: IFilter) {
     categories,
     authors: author,
     views,
-    status: query.status,
+    status: query.status || "",
     contributor,
     chapter,
+    keySort,
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
@@ -44,8 +46,8 @@ export async function getListBooks(query: IFilter) {
         Authorization: `Bearer ${token}`,
       },
     });
-    const data = res.data ;
-    const total = res.headers["x-total-count"] ;
+    const data = res.data;
+    const total = res.headers["x-total-count"];
     return { data, total };
   } catch (e) {
     return null;
@@ -55,23 +57,26 @@ export async function getListBooks(query: IFilter) {
 export async function getListBooksNoTotal(query: IFilter) {
   const page = query.page ? query.page : 1;
   const limit = query.limit ? query.limit : 10;
-  const search = query.search ? query.search : "";
+  const name = query.search ? query.search : "";
   const tags = query.tag ? query.tag : "";
   const categories = query.categories ? query.categories : "";
-  const author = query.author ? query.author : "";
+  const authors = query.author ? query.author : "";
   const views = query.views ? query.views : 0;
+  const keySort = query.keySort ? query.keySort : "";
   const contributor = query.contributor ? query.contributor : "";
   ///---> Params
   const params: any = {
     page,
     limit,
-    name: search,
+    name,
     tags,
     categories,
-    authors: author,
+    authors,
     views,
-    status: query.status,
+    status: query.status ? query.status : "",
     contributor,
+    keySort,
+    chapter: query.chapter ? query.chapter : "",
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
@@ -93,23 +98,6 @@ export async function getListBooksNoTotal(query: IFilter) {
       },
     });
     return res.data;
-  } catch (e) {
-    return null;
-  }
-}
-
-export async function getListBooksByViews(query: IFilter) {
-  const keys = query.key || "";
-  const page = query.page ? query.page : 1;
-  const limit = query.limit ? query.limit : 10;
-  try {
-    const res = await axios.get(
-      `${API_URL}/api/client/books-views?key=${keys}${page}&limit=${limit}`
-    );
-    return {
-      data: res.data,
-      total: res.headers["x-total-count"],
-    };
   } catch (e) {
     return null;
   }

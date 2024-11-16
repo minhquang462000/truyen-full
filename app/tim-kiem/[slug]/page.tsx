@@ -1,4 +1,4 @@
-import { getListBooks, getListBooksByViews, getListBooksNoTotal } from "@/api/books";
+import { getListBooks, getListBooksNoTotal } from "@/api/books";
 import { getOneCategory } from "@/api/category";
 import CardPageList from "@/components/Cards/CardPageList";
 import ChangeListByRat from "@/components/Functions/ChangeListByRat";
@@ -32,12 +32,14 @@ export default async function page({ params, searchParams }: PropParams) {
   const slug = (await params).slug?.toString() || "";
   const limit = 24;
   const page = Number((await searchParams).page) || 1;
-  const { data: bookByNameSearch, total } = await getListBooks({
+  const { data: bookByNameSearch, total } = (await getListBooks({
     search: slug,
     page: 1,
     limit,
-  } as IFilter) || { data: [], total: 0 };
-  const bookByView = await getListBooksByViews({ key: "weekly" } as IFilter);
+  } as IFilter)) || { data: [], total: 0 };
+  const { data: bookByView } = (await getListBooks({
+    keySort: "weekly",
+  } as IFilter)) || { data: [], total: 0 };
   return (
     <MainLayout>
       <main className="w-full  relative font-arial dark:text-[#b1b1b1] pb-5">
@@ -63,14 +65,14 @@ export default async function page({ params, searchParams }: PropParams) {
                   <CardPageList index={index} key={index} book={item} />
                 ))}
               </div>
-              <RootPagination page={page} limit={limit} total={total}/>
+              <RootPagination page={page} limit={limit} total={total} />
             </div>
             <div className="hidden  lg:block">
               <div className="bg-[#ecf0f1] dark:bg-transparent dark:border-[#2b2b2b] border-[#D9E1E4] border  text-base mt-8 pt-5 p-2 ">
                 <ListCategoryHome />
               </div>
               <div className="text-xs mt-8  ">
-                <ChangeListByRat books={bookByView?.data} />
+                <ChangeListByRat books={bookByView} />
                 <ListTag />
               </div>
             </div>

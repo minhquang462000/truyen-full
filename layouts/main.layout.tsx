@@ -10,7 +10,7 @@ export async function MainLayout({ children }: Readonly<ILayout>) {
       <MainHeaderMobile categories={categories} />
       <MainHeaderDesktop categories={categories} />
       {children}
-      <MainFooter />
+      <MainFooter categories={categories}/>
     </section>
   );
 }

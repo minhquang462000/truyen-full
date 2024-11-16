@@ -118,7 +118,7 @@ export default async function page(props: IpageProps) {
           </div>
         </div>
       </div>
-      <MainFooter />
+      <MainFooter categories={categories}/>
     </main>
   );
 }
