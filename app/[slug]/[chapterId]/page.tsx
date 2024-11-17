@@ -11,12 +11,14 @@ import SlideInChapterPage from "@/components/Slides/SlideInChapterPage";
 import ListInChapter from "@/components/Lists/ListInChapter";
 import CommentChapter from "@/components/Cards/CommentChapter";
 import { getListCategory } from "@/api/category";
-import { IFilter } from "@/interfaces";
+import { IFilter, PropParams } from "@/interfaces";
+import { getListBooksNoTotal } from "@/api/books";
 
-export interface IpageProps { }
 
-export default async function page(props: IpageProps) {
+export default async function page({}: PropParams) {
   const categories = await getListCategory({} as IFilter);
+  const bookNewUpdate = await getListBooksNoTotal({ limit: 12 } as IFilter); 
+  const bookHot = await getListBooksNoTotal({ limit: 12, keySort: "views" } as IFilter);
   return (
     <main className="w-full text-[#4e4e4e]  relative   bg-gradient-to-b from-[#d4d4d4] to-[#f4f4f4] ">
       <HiddenHeaderChapter categories={categories} />
@@ -113,12 +115,12 @@ export default async function page(props: IpageProps) {
           </ul>
           <CommentChapter />
           <div className="w-full flex flex-col gap-3">
-            <SlideInChapterPage title="truyện mới" />
-            <SlideInChapterPage title="truyện hot" />
+            <SlideInChapterPage booksData={bookNewUpdate}  title="truyện mới" />
+            <SlideInChapterPage booksData={bookHot} title="truyện hot" />
           </div>
         </div>
       </div>
-      <MainFooter categories={categories}/>
+      <MainFooter categories={categories} />
     </main>
   );
 }

@@ -34,6 +34,7 @@ export async function generateMetadata(
   };
 }
 export default async function page({ params, searchParams }: PropParams) {
+  const page = Number((await searchParams)?.page) || 1;
   const slug = (await params).slug?.toString();
   const id = slug?.split("-").pop()?.split(".")[0];
   const bookData = await getOneBook(id as string);
@@ -42,8 +43,6 @@ export default async function page({ params, searchParams }: PropParams) {
   } as IFilter)) || { data: [], total: 0 };
   const bookSameAuthor = await getListBooksNoTotal({
     author: bookData?.authors[0]._id,
-    page: 1,
-    limit: 10,
   } as IFilter);
   return (
     <MainLayout>
@@ -58,7 +57,7 @@ export default async function page({ params, searchParams }: PropParams) {
           <div className="w-full lg:grid lg:mt-5  grid-cols-4">
             <div className="lg:col-span-3">
               <CardItemDetail bookData={bookData} />
-              <ListChapter />
+              <ListChapter page={page} bookName={bookData?.name} />
             </div>
             <div className="hidden  lg:block">
               <ListStoryByAuthor books={bookSameAuthor} />

@@ -3,7 +3,10 @@ import { convertNumber } from "@/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
+import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+} from "react-icons/md";
 export interface IRootPaginationProps {
   page: any;
   limit: number;
@@ -20,10 +23,11 @@ export default function PaginationDesktop(props: IRootPaginationProps) {
       return Array.from({ length: totalPage }, (_, index) => (
         <Link href={`${pathName}/?page=${index + 1}`} key={index}>
           <button
-            className={`flex items-center ${page === index + 1
-              ? " dark:border-[#92bb35] text-white  bg-[#34495e] dark:bg-transparent dark:text-[#92bb35] "
-              : " "
-              } justify-center px-2 hover:text-white   border-transparent dark:hover:text-[#92bb35] dark:hover:border-[#92bb35] border hover:bg-[#34495e]
+            className={`flex items-center ${
+              page === index + 1
+                ? " dark:border-[#92bb35] text-white  bg-[#34495e] dark:bg-transparent dark:text-[#92bb35] "
+                : " "
+            } justify-center px-2 hover:text-white   border-transparent dark:hover:text-[#92bb35] dark:hover:border-[#92bb35] border hover:bg-[#34495e]
                               h-6 text-xs md:h-8 dark:hover:bg-transparent md:text-sm `}
           >
             {index + 1}
@@ -96,10 +100,11 @@ export default function PaginationDesktop(props: IRootPaginationProps) {
       return (
         <Link href={`${pathName}/?page=${item}`} key={index}>
           <button
-            className={`flex items-center ${parseInt(item) == page
-              ? " dark:border-[#92bb35] text-white  bg-[#34495e] dark:bg-transparent dark:text-[#92bb35] "
-              : " "
-              } justify-center px-2 hover:text-white text-start   border-transparent dark:hover:text-[#92bb35] dark:hover:border-[#92bb35] border hover:bg-[#34495e]
+            className={`flex items-center ${
+              parseInt(item) == page
+                ? " dark:border-[#92bb35] text-white  bg-[#34495e] dark:bg-transparent dark:text-[#92bb35] "
+                : " "
+            } justify-center px-2 hover:text-white text-start   border-transparent dark:hover:text-[#92bb35] dark:hover:border-[#92bb35] border hover:bg-[#34495e]
                               h-6 text-xs md:h-8 dark:hover:bg-transparent md:text-sm `}
           >
             {convertNumber(parseInt(item))}
@@ -110,16 +115,12 @@ export default function PaginationDesktop(props: IRootPaginationProps) {
   };
   return (
     <div
-      className={`w-max max-w-full m-auto mt-6 p-[1px] border border-[#999]  ${totalPage <= 1 && "hidden"}`}
+      className={`w-max max-w-full m-auto mt-6 p-[1px] border border-[#999]  ${
+        totalPage <= 1 && "hidden"
+      }`}
       aria-label="Page navigation example"
     >
       <ul className="flex  dark:text-white text-[#34495e] text- items-center justify-start -space-x-px h-6 text-xs md:h-8 md:text-sm ">
-        <Link className={`${page == 1 ? "hidden" : "block"}`} href={`?page=${1}`}>
-          <li className="md:h-8  h-6 flex items-center hover:bg-[#34495e]  border-transparent  border dark:hover:border-[#92bb35] dark:hover:bg-transparent dark:hover:text-[#92bb35] hover:text-white justify-center w-max px-2 gap-1">
-            <MdKeyboardDoubleArrowLeft />
-            Đầu
-          </li>
-        </Link>
         <Link href={`${pathName}/?page=${prevPage ?? 1}`}>
           <li className="md:h-8  h-6 flex items-center hover:bg-[#34495e]  border-transparent  border dark:hover:border-[#92bb35] dark:hover:bg-transparent dark:hover:text-[#92bb35] hover:text-white justify-center w-8">
             <IoIosArrowBack />
@@ -127,16 +128,9 @@ export default function PaginationDesktop(props: IRootPaginationProps) {
         </Link>
 
         {renderPagination()}
-        <Link href={`page=${nextPage ?? 1}`}>
-          <li
-            className="md:h-8  h-6 flex items-center hover:bg-[#34495e]  border-transparent border dark:hover:border-[#92bb35] dark:hover:bg-transparent dark:hover:text-[#92bb35] hover:text-white justify-center w-8">
-
+        <Link href={`${pathName}/?page=${nextPage ?? totalPage}`}>
+          <li className="md:h-8  h-6 flex items-center hover:bg-[#34495e]  border-transparent border dark:hover:border-[#92bb35] dark:hover:bg-transparent dark:hover:text-[#92bb35] hover:text-white justify-center w-8">
             <IoIosArrowForward />
-          </li>
-        </Link>
-        <Link className={`${page == totalPage ? "hidden" : "block"}`} href={`${pathName}/?page=${totalPage}`}>
-          <li className="md:h-8 h-6  flex items-center hover:bg-[#34495e] border-transparent  border dark:hover:border-[#92bb35] dark:hover:bg-transparent dark:hover:text-[#92bb35] hover:text-white justify-center w-max px-2 gap-1">
-            Cuối <MdKeyboardDoubleArrowRight />
           </li>
         </Link>
       </ul>

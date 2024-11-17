@@ -1,4 +1,9 @@
 "use client";
+import { handleUpdateView } from "@/api/updateView";
+import { IBook } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
+import Image from "next/image";
+import Link from "next/link";
 import * as React from "react";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
 import { GoClock } from "react-icons/go";
@@ -7,14 +12,9 @@ import { MdOutlineWatchLater } from "react-icons/md";
 import Slider from "react-slick";
 export interface ISlideHomeProps {
   title: string;
+  booksData: IBook[];
 }
-const listImg = [
-  "https://cdnnvd.com/nettruyen/thumb/maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii.jpg",
-  "https://cdnnvd.com/nettruyen/thumb/gui-em-nguoi-bat-tu.jpg",
-  "https://cdnnvd.com/nettruyen/thumb/kimi-no-koto-ga-dai-dai-dai-dai-daisuki-na-100-ri-no-kanojo.jpg",
-  "https://cdnnvd.com/nettruyen/thumb/man-cap-tra-xanh-xuyen-khong-thanh-tieu-dang-thuong.jpg",
-  "https://cdnnvd.com/nettruyen/thumb/anh-ay-rat-hay-treu-choc-toi.jpg",
-];
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 const NextArrow = (props: any) => {
   const { onClick, currentSlide } = props;
   return (
@@ -38,8 +38,10 @@ const PrevArrow = (props: any) => {
   );
 };
 
-export default function SlideInChapterPage(props: ISlideHomeProps) {
-  const { title } = props;
+export default function SlideInChapterPage({
+  title,
+  booksData,
+}: ISlideHomeProps) {
   const settings = {
     dots: false,
     infinite: true,
@@ -103,22 +105,30 @@ export default function SlideInChapterPage(props: ISlideHomeProps) {
       </h2>
       <div className="w-full group">
         <Slider {...settings}>
-          {listImg.map((item, index) => {
+          {booksData?.map((book, index) => {
             return (
-              <div key={index} className="w-full text-sm ">
-                <div className="w-[95%] text-center  flex flex-col gap-2 overflow-hidden cursor-pointer relative h-full  m-auto">
-                  <div className="md:h-[200px] relative overflow-hidden w-full ">
-                    <img
+              <Link
+                href={`/${convertToSlug(book?.name)}-${book?._id}.html`}
+                key={index}
+              >
+                <div
+                  onClick={() => handleUpdateView(book?._id)}
+                  className="w-[95%] text-center  flex flex-col gap-2 overflow-hidden cursor-pointer relative h-full  m-auto"
+                >
+                  <div className="md:h-[200px] aspect-[3/2] relative overflow-hidden w-full ">
+                    <Image
                       className="h-full w-full object-cover"
-                      src={item}
+                      width={200}
+                      height={300}
+                      src={`${DOMAIN}/api/books/${book?.images[0]}`}
                       alt="img"
                     />
-                    <h3 className=" bg-black bg-opacity-50 md:py-1 text-[10px] md:text-sm leading-4 absolute bottom-0 right-0 text-white    transition-all duration-300  font-semibold">
-                      Em Có Nghe Thấy Tôi Nói Không
-                    </h3>
                   </div>
+                  <p className=" w-full bg-black bg-opacity-60 md:py-1 text-[10px] md:text-sm leading-4 absolute bottom-0 right-0 text-white  line-clamp-1 px-2 text-center font-semibold">
+                    {book?.name}
+                  </p>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </Slider>
