@@ -1,14 +1,6 @@
 'use client'
-import { useEffect, useState } from "react";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
-import { IoIosArrowUp } from "react-icons/io";
-
-export interface IButtonBackToTopPageProps {
-}
-
-export default function ButtonBackToTopPage(props: IButtonBackToTopPageProps) {
-
-    // Cuộn lên đầu trang
+export default function ButtonBackToTopPage() {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
