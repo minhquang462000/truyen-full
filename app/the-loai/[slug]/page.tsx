@@ -37,7 +37,7 @@ export default async function page({ params, searchParams }: PropParams) {
     limit,
     status: Number(status) || "",
   } as IFilter) || { data: [], total: 0 };
-  const { data: bookByView } = await getListBooks({ keySort: "weekly" } as IFilter)|| { data: [], total: 0 };
+  const { data: bookByView } = await getListBooks({ sortKey: "day" } as IFilter)|| { data: [], total: 0 };
   return (
     <MainLayout>
       <main className="w-full  relative font-arial dark:text-[#b1b1b1] pb-5">

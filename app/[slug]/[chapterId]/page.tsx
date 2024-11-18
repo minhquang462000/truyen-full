@@ -2,11 +2,7 @@ import MainFooter from "@/components/Footers/MainFooter";
 import HiddenHeaderChapter from "@/components/Functions/HiddenHeaderChapter";
 import Link from "next/link";
 import logo from "@/public/images/spriteimg_new_white_op.png";
-
-import { FaCommentAlt, FaFlag } from "react-icons/fa";
 import ButtonChangeChapter from "@/components/Functions/BuutonChangeChapter";
-import { IoMdHome } from "react-icons/io";
-import { SlActionRedo } from "react-icons/sl";
 import SlideInChapterPage from "@/components/Slides/SlideInChapterPage";
 import ListInChapter from "@/components/Lists/ListInChapter";
 import CommentChapter from "@/components/Cards/CommentChapter";
@@ -18,7 +14,7 @@ import { getListBooksNoTotal } from "@/api/books";
 export default async function page({}: PropParams) {
   const categories = await getListCategory({} as IFilter);
   const bookNewUpdate = await getListBooksNoTotal({ limit: 12 } as IFilter); 
-  const bookHot = await getListBooksNoTotal({ limit: 12, keySort: "views" } as IFilter);
+  const bookHot = await getListBooksNoTotal({ limit: 12, sortKey: "views" } as IFilter);
   return (
     <main className="w-full text-[#4e4e4e]  relative   bg-gradient-to-b from-[#d4d4d4] to-[#f4f4f4] ">
       <HiddenHeaderChapter categories={categories} />

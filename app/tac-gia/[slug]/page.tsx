@@ -1,5 +1,5 @@
 import { getOneAuthor } from "@/api/author";
-import { getListBooks} from "@/api/books";
+import { getListBooks } from "@/api/books";
 import CardPageList from "@/components/Cards/CardPageList";
 import ChangeListByRat from "@/components/Functions/ChangeListByRat";
 import RootPagination from "@/components/Functions/RootPagination";
@@ -38,7 +38,7 @@ export default async function page({ params, searchParams }: PropParams) {
     limit,
     status: Number(status) || "",
   } as IFilter) || { data: [], total: 0 };
-  const {data: bookByView} = await getListBooks({ keySort: "weekly" } as IFilter) || { data: [], total: 0 };
+  const { data: bookByView } = await getListBooks({ sortKey: "day" } as IFilter) || { data: [] }
   return (
     <MainLayout>
       <main className="w-full  relative font-arial  dark:text-[#b1b1b1] pb-5">

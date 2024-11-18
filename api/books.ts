@@ -12,7 +12,7 @@ export async function getListBooks(query: IFilter) {
   const views = query.views ? query.views : 0;
   const contributor = query.contributor ? query.contributor : "";
   const chapter = query.chapter ? query.chapter : "";
-  const keySort = query.keySort ? query.keySort : "";
+  const sortKey = query.sortKey ? query.sortKey : "";
   ///---> Params
   const params: any = {
     page,
@@ -25,7 +25,7 @@ export async function getListBooks(query: IFilter) {
     status: query.status || "",
     contributor,
     chapter,
-    keySort,
+    sortKey,
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
@@ -62,7 +62,7 @@ export async function getListBooksNoTotal(query: IFilter) {
   const categories = query.categories ? query.categories : "";
   const authors = query.author ? query.author : "";
   const views = query.views ? query.views : 0;
-  const keySort = query.keySort ? query.keySort : "";
+  const sortKey = query.sortKey ? query.sortKey : "";
   const contributor = query.contributor ? query.contributor : "";
   ///---> Params
   const params: any = {
@@ -75,7 +75,7 @@ export async function getListBooksNoTotal(query: IFilter) {
     views,
     status: query.status ? query.status : "",
     contributor,
-    keySort,
+    sortKey,
     chapter: query.chapter ? query.chapter : "",
   };
   const keys = Object.keys(params) as (keyof IFilter)[];

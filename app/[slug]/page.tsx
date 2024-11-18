@@ -39,7 +39,7 @@ export default async function page({ params, searchParams }: PropParams) {
   const id = slug?.split("-").pop()?.split(".")[0];
   const bookData = await getOneBook(id as string);
   const { data: bookByView } = (await getListBooks({
-    keySort: "weekly",
+    sortKey: "day",
   } as IFilter)) || { data: [], total: 0 };
   const bookSameAuthor = await getListBooksNoTotal({
     author: bookData?.authors[0]._id,

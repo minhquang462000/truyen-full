@@ -24,7 +24,7 @@ export default function ListBookHot({
     const fetchBookByCategory = async () => {
       try {
         const res = await axios.get(
-          `${DOMAIN}/api/client/books?limit=13&page=1&categories=${categoryFilter.id}`
+          `${DOMAIN}/api/client/books?limit=13&categories=${categoryFilter.id}&sortKey=views`
         );
         setListBook(res.data);
       } catch (e) {

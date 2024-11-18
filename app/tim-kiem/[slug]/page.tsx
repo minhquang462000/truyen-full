@@ -38,7 +38,7 @@ export default async function page({ params, searchParams }: PropParams) {
     limit,
   } as IFilter)) || { data: [], total: 0 };
   const { data: bookByView } = (await getListBooks({
-    keySort: "weekly",
+    sortKey: "day",
   } as IFilter)) || { data: [], total: 0 };
   return (
     <MainLayout>

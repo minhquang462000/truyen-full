@@ -10,7 +10,7 @@ import ListBookHot from "@/components/Lists/ListBookHot";
 import ListTag from "@/components/Lists/ListTag";
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default async function Home() {
-  const booksHot = await getListBooksNoTotal({ page: 1, limit: 13 } as IFilter);
+  const booksHot = await getListBooksNoTotal({ sortKey: "views", limit: 13 } as IFilter);
   const bookNewUpdate = await getListBooksNoTotal({ limit: 25 } as IFilter);
   const categories = await getListCategory({} as IFilter);
   const bookComplete = await getListBooksNoTotal({
