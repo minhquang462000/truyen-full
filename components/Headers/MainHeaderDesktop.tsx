@@ -17,7 +17,6 @@ export interface IMainHeaderProps {
 }
 
 export default function MainHeaderDesktop({ categories }: IMainHeaderProps) {
-  const [showMenu, setShowMenu] = useState(false);
   const [showList, setShowList] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [showClassifyChart, setShowClassifyChart] = useState(false);

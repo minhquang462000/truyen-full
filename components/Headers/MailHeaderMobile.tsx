@@ -2,13 +2,10 @@
 import Link from "next/link";
 import logoHome from "@/public/images/spriteimg_new_white_op.png";
 import { IoReorderThreeOutline } from "react-icons/io5";
-import { MdViewList } from "react-icons/md";
-import { IoMdArrowDropdown, IoMdSettings } from "react-icons/io";
 import { FaBook } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import SearchHeader from "./SearchHerder";
 import { ICategory } from "@/interfaces";
-import { convertToSlug } from "@/utils/converToSlug";
 import PopUpCategoryHeader from "../PopUp/PopUpCategoryHeader";
 import PopUpListHeader from "../PopUp/PopUpListHeader";
 import PoUpClassifyCharHeader from "../PopUp/PoUpClassifyCharHeader";
