@@ -21,7 +21,7 @@ export default function CardItemDetail({ bookData }: { bookData: IBook }) {
         <div className="w-[220px] aspect-[2/3] image-detail relative lg:shadow-lg lg:shadow-[#666] lg:w-[85%]   my-2 m-auto ">
           <Image
             className="object-cover w-full h-full lg:border-[1px] lg:border-black lg:border-l-[5px]"
-            src={` ${DOMAIN}/api/books/${bookData?.images[0]}`}
+            src={`${DOMAIN}/api/books/${bookData?.images[0]}`}
             alt=""
             width={220}
             height={400}
